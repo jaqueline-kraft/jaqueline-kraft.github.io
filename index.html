@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Jaqueline Kraft</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="robots" content="noindex, nofollow">
+
 </head>
 
 <body>
@@ -271,31 +273,32 @@
  
 
     <!-- SCRIPTS -->
-            <script>
+         <script>
         // ============================================
-        // ZUGANGS-KONTROLLE mit individuellen Tokens
+        // ZUGANGS-KONTROLLE mit Tokens
         // ============================================
         const validTokens = {
-            "Test26": "Test26",
-            // Füge hier weitere Tokens hinzu
+            "TSx26": "TSx26",
+            // weitere Tokens hier
         };
 
-        // URL Parameter auslesen
         const urlParams = new URLSearchParams(window.location.search);
         const accessToken = urlParams.get('access');
+        const mainContent = document.getElementById('main-content');
+        const accessDenied = document.getElementById('access-denied');
 
-        // Check ob Token gültig ist
         if (!accessToken || !validTokens[accessToken]) {
-            document.getElementById('main-content').style.display = 'none';
-            document.getElementById('access-denied').style.display = 'block';
-            return;
+            // Nur ausblenden, nicht Script stoppen
+            mainContent.style.display = 'none';
+            accessDenied.style.display = 'block';
+        } else {
+            mainContent.style.display = 'block';
+            accessDenied.style.display = 'none';
+            console.log('Zugriff via:', validTokens[accessToken]);
         }
 
-        // Optional: In Console loggen welcher Token verwendet wurde (für deine Statistik)
-        console.log('Zugriff via:', validTokens[accessToken]);
-
         // ============================================
-        // NAVIGATION - Links mit Maus-Hover
+        // NAVIGATION
         // ============================================
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll(".project-nav a");
@@ -303,14 +306,11 @@
 
         function setActiveLink() {
             let current = "";
-
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                if (window.scrollY >= sectionTop) {
+                if (window.scrollY >= section.offsetTop - 150) {
                     current = section.id;
                 }
             });
-
             navLinks.forEach(link => {
                 link.classList.remove("active");
                 if (link.getAttribute("href") === `#${current}`) {
@@ -319,47 +319,32 @@
             });
         }
 
-        nav.addEventListener("mouseleave", () => {
-            nav.classList.remove("visible");
-        });
-
         window.addEventListener("scroll", setActiveLink);
 
-        // ============================================
-        // HEADER CONTROLS - Rechts mit Maus-Hover
-        // ============================================
-        const headerControls = document.querySelector(".header-controls"); // HIER WAR DER FEHLER!
-
-        // Gemeinsamer Mouse-Move Handler für beide Seiten
+        // Navigation Hover sichtbar
         document.addEventListener("mousemove", (e) => {
             const windowWidth = window.innerWidth;
-            
+            const headerControls = document.querySelector(".header-controls");
+
             // Linke Seite: Navigation
-            if (e.clientX < 150) {
-                nav.classList.add("visible");
-            } else if (e.clientX > 300) {
-                nav.classList.remove("visible");
-            }
-            
+            if (e.clientX < 150) nav.classList.add("visible");
+            else if (e.clientX > 300) nav.classList.remove("visible");
+
             // Rechte Seite: Header Controls
-            if (e.clientX > windowWidth - 150) {
-                headerControls.classList.add("visible");
-            } else if (e.clientX < windowWidth - 300) {
-                headerControls.classList.remove("visible");
-            }
+            if (e.clientX > windowWidth - 150) headerControls.classList.add("visible");
+            else if (e.clientX < windowWidth - 300) headerControls.classList.remove("visible");
         });
 
-        headerControls.addEventListener("mouseleave", () => {
-            headerControls.classList.remove("visible");
-        });
+        nav.addEventListener("mouseleave", () => nav.classList.remove("visible"));
+        document.querySelector(".header-controls").addEventListener("mouseleave", (e) => e.currentTarget.classList.remove("visible"));
 
         // ============================================
         // DARK MODE TOGGLE
         // ============================================
         const themeToggle = document.getElementById("theme-toggle");
         const root = document.documentElement;
-        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         const savedTheme = localStorage.getItem("theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
         if (savedTheme) {
             root.setAttribute("data-theme", savedTheme);
@@ -379,24 +364,14 @@
         // LANGUAGE TOGGLE
         // ============================================
         const langButtons = document.querySelectorAll("[data-lang-btn]");
-        let currentLang = "de";
-
-        // Ersten Button als aktiv markieren
-        langButtons[0].classList.add("active");
-
-        langButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                currentLang = button.getAttribute("data-lang-btn");
-                
-                // Alle Buttons inaktiv machen
-                langButtons.forEach(btn => btn.classList.remove("active"));
-                
-                // Geklickten Button aktiv machen
-                button.classList.add("active");
-                
-                console.log("Sprache gewechselt zu:", currentLang);
+        langButtons.forEach((btn, index) => {
+            if (index === 0) btn.classList.add("active");
+            btn.addEventListener("click", () => {
+                langButtons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                console.log("Sprache gewechselt zu:", btn.getAttribute("data-lang-btn"));
             });
         });
-    </script>
+       </script>
   </body>
 </html>
