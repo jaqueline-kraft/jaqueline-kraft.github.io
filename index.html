@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Jaqueline Kraft</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Zugangs-Check -->
+  <div id="access-denied" style="display: none; text-align: center; padding: 4rem;">
+   <h1 style="color: #D98E77;">Zugang nicht möglich</h1>
+   <p>Dieser Link ist ungültig oder abgelaufen.</p>
+   <p>Bitte verwenden Sie den Link aus Ihrer Bewerbungskorrespondenz.</p>
+  </div>
+
+   <div id="main-content">
+
+    <!-- HEADER -->
+    <header id="home">
+        <div class="header-controls">
+          <!-- Dark Mode Toggle -->
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+          </label>
+
+          <!-- Sprachswitch -->
+          <div class="lang-switch">
+            <button data-lang-btn="de">DE</button>
+            <span>|</span>
+            <button data-lang-btn="en">EN</button>
+          </div>
+        </div>
+
+        <div class="section-content">
+            <h1>PORTFOLIO</h1>
+            <h2>Jaqueline Kraft</h2>
+        </div>   
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="project-nav">
+        <a href="#home">
+            <span class="dot"></span>
+            <span class="label">Home</span>
+        </a>  
+        <a href="#projekt-1">
+            <span class="dot"></span>
+            <span class="label">Freie Arbeiten</span>
+        </a>
+        <a href="#projekt-2">
+            <span class="dot"></span>
+            <span class="label">Infowerk Branches</span>
+        </a>
+        <a href="#projekt-3">
+            <span class="dot"></span>
+            <span class="label">Infowerk Themes</span>
+        </a>
+        <a href="#projekt-4">
+            <span class="dot"></span>
+            <span class="label">Infowerk Products</span>
+        </a>
+        <a href="#projekt-5">
+            <span class="dot"></span>
+            <span class="label">Infowerk Farbvarianten</span>
+        </a>
+        <a href="#about" class="active">
+            <span class="dot"></span>
+            <span class="label">About Me</span>
+        </a>
+    </nav>
+
+    <!-- Infowerk - Disclaimer Description -->
+    <section id="Disclaimer">
+        <div class="section-content">
+            <h3>Das Portfolio beinhaltet Vorlagendesigns für
+                Branchen, Produkte und Events. Alle gezeigten
+                Designs wurden von mir entwickelt, visualisiert
+                und für den Einsatz im Editor
+                aufbereitet und sind online aufrufbar.</h3>
+                <h3>Mein Aufgabenbereich umfasste die
+                Design Entwicklung, Teamkoordination,
+                sowie Zeit -und Projektmanagement des
+                gesamten Infowerk Projekts.</h3>
+                <h3>Die Rechte liegen bei Infowerk, es werden
+                öffentlich zugängliche Designs präsentiert,
+                welche ausschließlich von mir erstellt wurden.</h3>
+        </div>    
+    </section>    
+
+    <!-- PROJEKT 1 - Freie Arbeiten -->
+    <section id="projekt-1">
+        <div class="section-content">
+            <h2>Branding Café Katzenecke</h2>
+            <div class="portfolio-grid">
+                <!-- Bild 1 -->
+                <div class="portfolio-item">
+                    <img src="images/Cat_round_sticker_braun.jpg" alt="Katzensticker">
+                    <img src="images/Cat_round_sticker_braun.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Aufkleber</p>
+                </div>
+                <!-- Bild 2 -->
+                <div class="portfolio-item">
+                    <img src="images/Catcurvedsticker.jpg" alt="Eigene Arbeiten">
+                    <img src="images/Catcurvedsticker.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Dynamischer Aufkleber</p>
+                </div>
+                <!-- Bild 3 -->
+                <div class="portfolio-item">
+                    <img src="images/Businesscards_Mockup.jpg" alt="Eigene Arbeiten">
+                    <img src="images/Businesscards_Mockup.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Visitenkarten</p>
+                </div>     
+            </div>
+        </div> 
+    </section>
+
+    <!-- PROJEKT 2 - Infowerk Branches -->
+    <section id="projekt-2">
+        <div class="section-content">
+            <h2>Branchendesigns Infowerk</h2>
+            <div class="portfolio-grid">
+                <!-- Bild 1 -->
+                <div class="portfolio-item wide">
+                    <img src="images/BC_neutral_HF.jpeg" alt="Visitenkarten1">
+                    <img src="images/BC_neutral_QF_CV.jpeg" alt="Visitenkarten1ALT" class="hover-img">
+                </div>
+                <!-- Bild 2 -->
+                <div class="portfolio-item wide">
+                    <img src="images/BC_Grafik.jpeg" alt="Visitenkarten2">
+                    <img src="images/BC_Grafik_BU.jpeg" alt="Visitenkarten2ALT" class="hover-img">
+                </div>
+                <!-- Bild 3 -->
+                <div class="portfolio-item wide">
+                    <img src="images/BC_Chair.jpeg" alt="Visitenkarten3">
+                    <img src="images/Branches_Marketing_3.jpeg" alt="Visitenkarten3ALT" class="hover-img">
+                </div>
+                <!-- Bild 4 -->
+                <div class="portfolio-item wide">
+                    <img src="images/Branches_Sales_1.jpeg" alt="Visitenkarten4">
+                    <img src="images/Branches_Spirit_wellness.jpeg" alt="Visitenkarten4ALT" class="hover-img">
+                </div>
+            </div>
+            <p class="item-title">Visitenkarten für Berufsbranchen auf www.infowerk.com/de aufrufbar. Hier dargestellt z.B. Marketing Manager, Sales Manager, Grafikdesigner oder Coaching.</p>
+        </div> 
+    </section>
+
+    <!-- PROJEKT 3 - Infowerk Themes -->
+    <section id="projekt-3">
+        <div class="section-content">
+            <h2>Themendesigns Infowerk</h2>
+            <div class="portfolio-grid">
+                <!-- Bild 1 -->
+                <div class="portfolio-item wide">
+                    <img src="images/weddingacryl.jpeg" alt="Wedding">
+                    <img src="images/Acryl_arabic.jpeg" alt="Wedding" class="hover-img">
+                </div>
+                <!-- Bild 2 -->
+                <div class="portfolio-item wide">
+                    <img src="images/halloween_postcard.jpeg" alt="Halloween">
+                    <img src="images/Beachdesign.jpeg" alt="Halloween" class="hover-img">
+                </div>
+                <!-- Bild 3 -->
+                <div class="portfolio-item wide">
+                    <img src="images/Event_Summerparty_3.jpeg" alt="Summerparty">
+                    <img src="images/Summerparty.jpeg" alt="Summerparty" class="hover-img">
+                </div>
+                <!-- Bild 4 -->
+                <div class="portfolio-item wide">
+                    <img src="images/carnivaal.jpeg" alt="Carnival">
+                    <img src="images/Gardendesign.jpeg" alt="Carnival" class="hover-img">
+                </div>
+                 <!-- Bild 5 -->
+                <div class="portfolio-item wide">
+                    <img src="images/Dog.jpeg" alt="Birthdayparty">
+                    <img src="images/Graduation.jpeg" alt="Graduation" class="hover-img">
+                </div>
+                <!-- Bild 6 -->
+                <div class="portfolio-item wide">
+                    <img src="images/girl.jpeg" alt="BabyshowerGirl">
+                    <img src="images/boy.jpeg" alt="BabyshowerBoy" class="hover-img">
+                </div>
+            </div>
+             <p class="item-title">Einladungskarten, Acryleinladungen und Postkarten für Anlass- und Themendesigns wie z.B. Hochzeit, Halloween, Sommerfest, Karneval, Geburtstag, Graduation und Babyshower.</p>
+        </div> 
+    </section>
+
+    <!-- PROJEKT 4 - Infowerk Products -->
+    <section id="projekt-4">
+        <div class="section-content">
+            <h2>Produktdesigns für Infowerk</h2>
+            <div class="portfolio-grid">
+                <!-- Bild 1 -->
+                <div class="portfolio-item">
+                    <img src="images/Cat_round_sticker_braun.jpg" alt="Katzensticker">
+                    <img src="images/Cat_round_sticker_braun.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Aufkleber</p>
+                </div>
+                <!-- Bild 2 -->
+                <div class="portfolio-item">
+                    <img src="images/Catcurvedsticker.jpg" alt="Eigene Arbeiten">
+                    <img src="images/Catcurvedsticker.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Dynamischer Aufkleber</p>
+                </div>
+                <!-- Bild 3 -->
+                <div class="portfolio-item">
+                    <img src="images/Businesscards_Mockup.jpg" alt="Eigene Arbeiten">
+                    <img src="images/Businesscards_Mockup.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Visitenkarten</p>
+                </div>   
+            </div>
+        </div> 
+    </section>
+
+    <!-- PROJEKT 5 - Infowerk Farbvarianten -->
+    <section id="projekt-5">
+        <div class="section-content">
+            <h2>Farbvarianten Infowerk</h2>
+            <div class="portfolio-grid">
+                <!-- Bild 1 -->
+                <div class="portfolio-item">
+                    <img src="images/Cat_round_sticker_braun.jpg" alt="Katzensticker">
+                    <img src="images/Cat_round_sticker_braun.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Aufkleber</p>
+                </div>
+                <!-- Bild 2 -->
+                <div class="portfolio-item">
+                    <img src="images/Catcurvedsticker.jpg" alt="Eigene Arbeiten">
+                    <img src="images/Catcurvedsticker.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Dynamischer Aufkleber</p>
+                </div>
+                <!-- Bild 3 -->
+                <div class="portfolio-item">
+                    <img src="images/Businesscards_Mockup.jpg" alt="Eigene Arbeiten">
+                    <img src="images/Businesscards_Mockup.png" alt="KatzenstickerALT" class="hover-img">
+                    <p class="item-title">Katzenecke Visitenkarten</p>
+                </div>     
+            </div>
+        </div> 
+    </section>
+
+    <!-- PERSONAL - About Me -->
+    <section id="about">
+        <div class="section-content">
+            <div class="about-container">
+              <img src="images/Rosa.png" alt="portrait" class="profile-img">
+             <div class="about-text">
+              <h3>About me</h3>
+              <p>Hier kommt dein Text über dich...</p>
+             </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="contact">
+        <div class="section-content">
+            <h2>Kontakt</h2>
+            <p>Mail: <a href="mailto:jaqueline.kraft.jk@gmail.com">jaqueline.kraft.jk@gmail.com</a>    |   Telefon: 0152 38417050  </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Jaqueline Kraft – Alle Rechte vorbehalten</p>
+    </footer>
+   </div>
+ 
+
+    <!-- SCRIPTS -->
+            <script>
+        // ============================================
+        // ZUGANGS-KONTROLLE mit individuellen Tokens
+        // ============================================
+        const validTokens = {
+            "Test26": "Test26",
+            // Füge hier weitere Tokens hinzu
+        };
+
+        // URL Parameter auslesen
+        const urlParams = new URLSearchParams(window.location.search);
+        const accessToken = urlParams.get('access');
+
+        // Check ob Token gültig ist
+        if (!accessToken || !validTokens[accessToken]) {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('access-denied').style.display = 'block';
+            return;
+        }
+
+        // Optional: In Console loggen welcher Token verwendet wurde (für deine Statistik)
+        console.log('Zugriff via:', validTokens[accessToken]);
+
+        // ============================================
+        // NAVIGATION - Links mit Maus-Hover
+        // ============================================
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".project-nav a");
+        const nav = document.querySelector(".project-nav");
+
+        function setActiveLink() {
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    current = section.id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("active");
+                }
+            });
+        }
+
+        nav.addEventListener("mouseleave", () => {
+            nav.classList.remove("visible");
+        });
+
+        window.addEventListener("scroll", setActiveLink);
+
+        // ============================================
+        // HEADER CONTROLS - Rechts mit Maus-Hover
+        // ============================================
+        const headerControls = document.querySelector(".header-controls"); // HIER WAR DER FEHLER!
+
+        // Gemeinsamer Mouse-Move Handler für beide Seiten
+        document.addEventListener("mousemove", (e) => {
+            const windowWidth = window.innerWidth;
+            
+            // Linke Seite: Navigation
+            if (e.clientX < 150) {
+                nav.classList.add("visible");
+            } else if (e.clientX > 300) {
+                nav.classList.remove("visible");
+            }
+            
+            // Rechte Seite: Header Controls
+            if (e.clientX > windowWidth - 150) {
+                headerControls.classList.add("visible");
+            } else if (e.clientX < windowWidth - 300) {
+                headerControls.classList.remove("visible");
+            }
+        });
+
+        headerControls.addEventListener("mouseleave", () => {
+            headerControls.classList.remove("visible");
+        });
+
+        // ============================================
+        // DARK MODE TOGGLE
+        // ============================================
+        const themeToggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme) {
+            root.setAttribute("data-theme", savedTheme);
+            themeToggle.checked = savedTheme === "dark";
+        } else if (systemDark) {
+            root.setAttribute("data-theme", "dark");
+            themeToggle.checked = true;
+        }
+
+        themeToggle.addEventListener("change", () => {
+            const newTheme = themeToggle.checked ? "dark" : "light";
+            root.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
+
+        // ============================================
+        // LANGUAGE TOGGLE
+        // ============================================
+        const langButtons = document.querySelectorAll("[data-lang-btn]");
+        let currentLang = "de";
+
+        // Ersten Button als aktiv markieren
+        langButtons[0].classList.add("active");
+
+        langButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                currentLang = button.getAttribute("data-lang-btn");
+                
+                // Alle Buttons inaktiv machen
+                langButtons.forEach(btn => btn.classList.remove("active"));
+                
+                // Geklickten Button aktiv machen
+                button.classList.add("active");
+                
+                console.log("Sprache gewechselt zu:", currentLang);
+            });
+        });
+    </script>
+  </body>
+</html>
