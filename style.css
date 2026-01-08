@@ -65,7 +65,7 @@ html {
 }
 
 body {
-    font-family: 'Gaultier', 'Avenir', 'Futura', 'Helvetica', sans-serif;
+    font-family: 'Gaultier', 'Avenir', 'Futura', 'Helvetica-Neue', sans-serif;
     background-color: var(--bg-page);
     color: var(--color-text);
     line-height: 1.4;
