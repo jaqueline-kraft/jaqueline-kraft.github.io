@@ -71,273 +71,295 @@
         color: var(--color-primary);
     }
 
-/* ==============HEADER============== */
-    header {
-        background-color: var(--color-light);
-        padding: 4rem 0;
-        min-height: 200px;
+/* ============== LANDING HEADER ============== */
+
+    .hero {
+      height: 200vh;              /* creates scroll room */
     }
 
-    .header-content {
-        position: relative;
-        max-width: 1200px;
-        margin: 1rem;
-        padding: 0 2rem;
+    #lottie-wrapper {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #hero-animation {
+      background: #000;
+      width: 100%;
+      height: 500px;
     }
 
-    header h1 {
-        font-size: clamp(2rem, 5vw, 4rem);
-        line-height: 1;
-        color: var(--color-alternative);
-        font-weight: 500;
-        letter-spacing: 0.15rem;
-        text-align: left;
-    }
+/* ============== HEADER CONTROLS ============== */
 
-    header h2 {
-        font-size: clamp(1.5rem, 3vw, 3.2rem);
-        line-height: 1.4;
-        color: var(--color-alternative);
-        font-weight: 400;
-        letter-spacing: 0.3rem;
-        text-align: left;
-    }
-
-    header h3 {
-        font-size: clamp(0,5rem, 1vw, 1rem);
-        line-height: 1;
-        padding-top: 0;
-        color: var(--color-alternative);
-        font-weight: 200;
-        letter-spacing: 0.15rem;
-        text-align: left;
-    }
-
-/* ==============Header Controls Container Languageswitch =============== */
     .header-controls {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        transform: translateX(20px);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        z-index: 100;
-        
-        /* Halbtransparente Box */
-        background-color: rgba(255, 255, 255, 0.15);
-        padding: 1rem 1.5rem;
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        
-        /* Auto-Hide Effekt */
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.4s ease, transform 0.4s ease;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      padding: 0.6rem 0.9rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      background-color: none;
+
+      white-space: nowrap;
     }
 
-    .header-controls.visible {
-        opacity: 1;
-        transform: translateX(0);
-        pointer-events: all;
+    .header-controls-inner {
+      display: flex;
+      align-items: center;  
+      gap: 1rem;
     }
 
-/* ==============DARK MODE TOGGLE============== */
+/* ============== DARK MODE TOGGLE ============== */
+
     .switch {
-        display: inline-block;
-        width: 50px;
-        height: 28px;
+      display: inline-flex;
+      align-items: center;
+      width: 50px;
+      height: 28px;
+      flex-shrink: 0;
     }
 
     .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-        position: absolute;
-        cursor: pointer;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
     }
 
     .slider {
-        position: relative;
-        display: block;
-        width: 50px;
-        height: 28px;
-        background-color: #ccc;
-        border-radius: 34px;
-        transition: background-color 0.4s;
+      position: relative;
+      width: 50px;
+      height: 28px;
+      background-color: #ccc;
+      border-radius: 34px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .slider::before {
-        content: "";
-        position: absolute;
-        width: 22px;
-        height: 22px;
-        left: 3px;
-        top: 3px;
-        background-color: white;
-        border-radius: 50%;
-        transition: transform 0.4s;
+      content: "";
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 3px;
+      top: 3px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
     }
 
     .switch input:checked + .slider {
-        background-color: var(--color-primary);
+      background-color: var(--color-primary);
     }
 
     .switch input:checked + .slider::before {
-        transform: translateX(22px);
+      transform: translateX(22px);
     }
+/* ============== LANGUAGE SWITCH ============== */
 
-    .slider:hover {
-        filter: brightness(1.1);
-    }
-
-    .switch input:focus + .slider {
-        box-shadow: 0 0 0 2px var(--color-primary);
-    }
-
-/* ==============LANGUAGE SWITCH============== */
     .lang-switch {
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .lang-separator {
+      opacity: 0.4;
+      user-select: none;
     }
 
     .lang-switch button {
-        background: none;
-        border: none;
-        color: var(--color-bg-page);
-        font-size:: 0.9rem;
-        letter-spacing: 0.1rem;
-        font-family: inherit;
-        cursor: pointer;
-        padding: 0.2rem 0.5rem;
-        transition: color 0.3s ease;
+      background: none;
+      border: none;
+      font-size: 0.9rem;
+      line-height: 1;
+      letter-spacing: 0.1rem;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 0.1rem 0.5rem;
+      color: var(--color-text);
     }
 
     .lang-switch button.active {
-        color: var(--color-alternative);
-        font-weight: 600;
+      color: var(--color-primary);
+      font-weight: 600;
     }
 
-/* ==============NAVIGATION============== */
-    .project-nav {
-        position: fixed;
-        top: 50%;
-        left: 0rem;
-        transform: translateY(-50%) translateX(-20px);
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        z-index: 1000;
-        
-        /* Halbtransparente Box */
-        background-color: rgba(255, 255, 255, 0.15);
-        padding: 2rem 2rem;
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        
-        /* Auto-Hide Effekt */
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.4s ease, transform 0.4s ease;
+/* ============== NAVIGATION ============== */
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-height: 5rem;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6rem;
+      background-color: #f4e9e0;
+      z-index: 999;
     }
 
-    .project-nav.visible {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-        pointer-events: all;
+
+    .top-nav .nav-main {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: clamp(1rem, 1.2vw, 2rem);
+      font-weight: 500;
+      color: var(--color-text);
+      white-space: nowrap;
     }
 
-    .project-nav::before {
-        content: '';
-        position: absolute;
-        left: 16px;
-        top: 2rem;
-        bottom: 2rem;
-        width: 2px;
-        background-color: #D98E77;
-        border-radius: 3px;
+    .top-nav .nav-main:hover {
+      color: var(--color-primary);
     }
 
-    .project-nav a {
-        position: relative;
-        color: #999;
-        text-decoration: none;
-        font-size: clamp(1, 1.5, 2);
-        padding-left: 0.5rem;
-        transition: color 0.3s ease;
-        font-weight: 400;
+    .top-nav .nav-main.active {
+      color: var(--color-primary);
     }
 
-    .project-nav a:hover {
-        color: var(--color-primary);
+    @media (max-width: 768px) {
+      .top-nav {
+        display: none;
+      }
+    }
+/* ============== MINI LOGO ============== */
+
+    .minilogo {
+      position: absolute;
+      left: 10rem;
+      width: 32px;
+      height: 32px;
+      z-index: 500;
     }
 
-    .project-nav a.active {
-        color: var(--color-primary);
+    .minilogo img {
+      width: 150%;
+      height: auto;
+      display: block;
     }
 
 /* ==============PORTFOLIO GRID============== */
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
 
-        .tall {
-          grid-row: span 2;  /* spans 2 rows instead of 1 */
-        }
+    .tall {
+        grid-row: span 2;  /* spans 2 rows instead of 1 */
+    }
 
-        /* Each portfolio item */
-        .portfolio-item {
-            position: relative;
-            height: clamp(18rem, 35vw, 26rem);
-            overflow: hidden;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            grid-column: span 2;
-        }
+    /* Each portfolio item */
+    .portfolio-item {
+        position: relative;
+        height: clamp(18rem, 35vw, 26rem);
+        overflow: hidden;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        grid-column: span 2;
+    }
 
-        .portfolio-item.wide {
-            grid-column: span 3;
-        }
+    .portfolio-item.wide {
+        grid-column: span 3;
+    }
 
-        /* Image container */
-        .portfolio-item img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.4s ease;
-            will-change: opacity;
-        }
+    /* Image container */
+    .portfolio-item img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.4s ease;
+        will-change: opacity;
+    }
 
-        /* Hover image layer */
-        .portfolio-item .hover-img {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 2;
-        }
+    /* Hover image layer */
+    .portfolio-item .hover-img {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 2;
+     }
 
-        /* Hover effect */
-        .portfolio-item:hover .hover-img {
-            opacity: 1;
-        }
+    /* Hover effect */
+    .portfolio-item:hover .hover-img {
+        opacity: 1;
+    }
 
-        /* Title below image */
-        .item-title {
-            margin-top: 0.5rem;
-            font-size: 1rem;
-            color: var(--color-text);
-            text-align: left;
-        }
+    /* Title below image */
+    .item-title {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        color: var(--color-text);
+        text-align: left;
+    }
+/* ============== PROJECT 4: 3 IMAGE MINI GRID ============== */
+
+    .project4-item {
+      display: grid;
+      grid-column: span 2;
+      gap: 0.5rem;
+      width: 100%;
+      height: 100%;
+    }
+
+    .project4-img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .project4-img img {
+      grid-column: span ;
+      width: 100%;
+      height: 100%;
+      height: span 1;
+      object-fit: cover;
+      object-position: left center;
+      display: block;
+    }
+
+    /* hover */
+    .project4-item .project4-img .hover-img {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .project4-item:hover .project4-img .hover-img {
+      opacity: 1;
+    }
+
+    /* text */
+    .project4-text {
+      margin-top: 0.5rem;
+      font-size: clamp(1rem, 1.2vw, 1.3rem);
+      color: var(--color-text);
+      text-align: center;
+    }
 
 /* ==============SECTIONS============== */
     section {
@@ -358,7 +380,7 @@
         color: var(--color-primary);
         font-weight: 500;
         letter-spacing: 0.1rem;
-        text-align: left;
+        text-align: center;
     }
 
     section h3 {
@@ -366,7 +388,7 @@
         padding: 0.5rem 0;
         color: var(--color-text);
         font-weight: 300;
-        text-align: left;
+        text-align: center;
     }
 
     section h4 {
@@ -380,7 +402,7 @@
     section p {
         color: var(--color-text);
         margin-bottom: 1rem;
-        text-align: left;
+        text-align: center;
         font-weight: 100;
     }
 
