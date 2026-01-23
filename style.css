@@ -1,23 +1,31 @@
 /* ==============FONT IMPORT - Gaultier============== */
     @font-face {
-        font-family: 'Gaultier';
-        src: url('fonts/Gaultier-Regular.woff2') format('woff2');
+        font-family: 'Montserrat';
+        src: url('fonts/Montserrat-Thin.woff2') format('woff2');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Gaultier';
-        src: url('fonts/Gaultier-Medium.woff2') format('woff2');
+        font-family: 'Montserrat';
+        src: url('fonts/Montserrat-Light.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Montserrat';
+        src: url('fontsMontserrat-Regular.woff2') format('woff2');
         font-weight: 500;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Gaultier';
-        src: url('fonts/Gaultier-SemiBold.woff2') format('woff2');
+        font-family: 'Montserrat';
+        src: url('fonts/Montserrat-SemiBold.woff2') format('woff2');
         font-weight: 600;
         font-style: normal;
         font-display: swap;
@@ -60,7 +68,7 @@
     }
 
     body {
-        font-family: 'Gaultier', 'Avenir', 'Futura', 'Helvetica-Neue', sans-serif;
+        font-family: 'Montserrat', 'Avenir', 'Futura', 'Helvetica-Neue', sans-serif;
         background-color: var(--bg-page);
         color: var(--color-text);
         line-height: 1.4;
