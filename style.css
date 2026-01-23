@@ -2,7 +2,7 @@
     @font-face {
         font-family: 'Montserrat';
         src: url('fonts/Montserrat-Thin.woff2') format('woff2');
-        font-weight: 400;
+        font-weight: 300;
         font-style: normal;
         font-display: swap;
     }
@@ -17,7 +17,7 @@
 
     @font-face {
         font-family: 'Montserrat';
-        src: url('fontsMontserrat-Regular.woff2') format('woff2');
+        src: url('fontsMontserrat-SemiBold.woff2') format('woff2');
         font-weight: 500;
         font-style: normal;
         font-display: swap;
@@ -25,7 +25,7 @@
 
     @font-face {
         font-family: 'Montserrat';
-        src: url('fonts/Montserrat-SemiBold.woff2') format('woff2');
+        src: url('fonts/Montserrat-Bold.woff2') format('woff2');
         font-weight: 600;
         font-style: normal;
         font-display: swap;
@@ -248,21 +248,6 @@
       .top-nav {
         display: none;
       }
-    }
-/* ============== MINI LOGO ============== */
-
-    .minilogo {
-      position: absolute;
-      left: 10rem;
-      width: 32px;
-      height: 32px;
-      z-index: 500;
-    }
-
-    .minilogo img {
-      width: 150%;
-      height: auto;
-      display: block;
     }
 
 /* ==============PORTFOLIO GRID============== */
