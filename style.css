@@ -108,7 +108,7 @@
 
     .hero {
       min-height: 100vh;
-      padding-top: var(--nav-height)∞  
+      padding-top: var(--nav-height);
       display: flex;
       align-items: flex-start;
       justify-content: center;
