@@ -99,7 +99,7 @@
     #hero-animation {
       background: transparent;
       width: 150%;
-      height: 500px;
+      height: auto;
       transform: translateY(-100px);  /* fixed unit */
     }
 
