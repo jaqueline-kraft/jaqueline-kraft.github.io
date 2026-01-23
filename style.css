@@ -74,7 +74,10 @@
 /* ============== LANDING HEADER ============== */
 
     .hero {
-      height: 100vh;              /* creates scroll room */
+      height: 100vh;    
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     #lottie-wrapper {
@@ -88,7 +91,7 @@
     }
     
     #hero-animation {
-      background: #ffffff;
+      background: transparent;
       width: 100%;
       height: 500px;
     }
