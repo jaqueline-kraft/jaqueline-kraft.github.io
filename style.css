@@ -84,7 +84,7 @@
     .hero {
       height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
     }
     
@@ -100,7 +100,6 @@
       background: transparent;
       width: 150%;
       height: auto;
-      transform: translateY(-100px);  /* fixed unit */
     }
 
 
