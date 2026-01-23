@@ -63,7 +63,16 @@
         --color-white: #ffffff;
         --color-alternative:#D98E77;
         --bg-page: #f6f5f3;
+        --nav-height: 80px;
     }
+    
+    /* mobile */
+    @media (max-width: 768px) {
+      :root {
+        --nav-height: 60px;
+      }
+    }
+
 
     [data-theme="dark"] {
         --color-primary: #86956f;
@@ -98,26 +107,25 @@
 /* ============== LANDING HEADER ============== */
 
     .hero {
-      height: 100vh;
+      min-height: 100vh;
+      padding-top: var(--nav-height)∞  
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      padding-top: 5rem;  
     }
     
     #lottie-wrapper {
-      position: relative;   /* NOT sticky */
-      height: 100vh;
+      width: 100%;
       display: flex;
-      align-items: center;
       justify-content: center;
     }
-    
+        
     #hero-animation {
-      background: transparent;
-      width: 90%;
+      width: min(150%, 1200px);
+      max-width: 100%;
       height: auto;
     }
+
 
 
 /* ============== HEADER CONTROLS ============== */
@@ -261,10 +269,11 @@
     }
 
     @media (max-width: 768px) {
-      .top-nav {
-        display: none;
+      :root {
+        --nav-height: 60px;
       }
     }
+
 
 /* ==============PORTFOLIO GRID============== */
 
