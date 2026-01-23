@@ -620,7 +620,6 @@
         /* ============================================
            LANDING / LOTTIE SCROLL
         ============================================ */
-
         const animation = lottie.loadAnimation({
           container: document.getElementById("hero-animation"),
           renderer: "svg",
@@ -628,23 +627,38 @@
           autoplay: false,
           path: "hero-animation.json"
         });
-
+        
         const scrollArea = document.querySelector(".hero");
-
+        
         animation.addEventListener("DOMLoaded", () => {
+        
+          // ensure animation starts at frame 0
+          animation.goToAndStop(0, true);
+        
           window.addEventListener("scroll", () => {
             const rect = scrollArea.getBoundingClientRect();
-            const progress = Math.min(
-              Math.max(-rect.top / (rect.height - window.innerHeight), 0),
-              1
-            );
-
+        
+            // fully outside viewport → do nothing
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+        
+            // above hero → reset
+            if (rect.top >= 0) {
+              animation.goToAndStop(0, true);
+              return;
+            }
+        
+            // progress calculation (safe)
+            const scrollProgress = -rect.top / rect.height;
+            const progress = Math.min(Math.max(scrollProgress, 0), 1);
+        
             animation.goToAndStop(
               progress * animation.totalFrames,
               true
             );
           });
+        
         });
+
 
         /* ============================================
            ACCESS CONTROL
