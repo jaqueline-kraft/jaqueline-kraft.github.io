@@ -1,32 +1,48 @@
 /* ==============FONT IMPORT - Gaultier============== */
     @font-face {
-        font-family: 'Montserrat';
+        font-family: 'Montserrat Thin';
         src: url('fonts/Montserrat-Thin.woff2') format('woff2');
+        font-weight: 100;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Light';
+        src: url('fonts/Montserrat-Light.woff2') format('woff2');
         font-weight: 300;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat';
-        src: url('fonts/Montserrat-Light.woff2') format('woff2');
+        font-family: 'Montserrat Regular';
+        src: url('fonts/Montserrat-Regular.woff2') format('woff2');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat';
-        src: url('fontsMontserrat-SemiBold.woff2') format('woff2');
+        font-family: 'Montserrat Medium';
+        src: url('fonts/Montserrat-Medium.woff2') format('woff2');
         font-weight: 500;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat';
-        src: url('fonts/Montserrat-Bold.woff2') format('woff2');
+        font-family: 'Montserrat SemiBold';
+        src: url('fontsMontserrat-SemiBold.woff2') format('woff2');
         font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Bold';
+        src: url('fonts/Montserrat-Bold.woff2') format('woff2');
+        font-weight: 700;
         font-style: normal;
         font-display: swap;
     }
@@ -99,7 +115,7 @@
     
     #hero-animation {
       background: transparent;
-      width: 120%;
+      width: 90%;
       height: auto;
     }
 
@@ -215,12 +231,12 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5rem;
+      height: 4rem;
       padding: 0 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8rem;
+      gap: 5rem;
       background-color: var(--color-light);
       z-index: 999;
     }
