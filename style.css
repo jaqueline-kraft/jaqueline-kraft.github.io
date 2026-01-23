@@ -99,7 +99,7 @@
     
     #hero-animation {
       background: transparent;
-      width: 150%;
+      width: 120%;
       height: auto;
     }
 
@@ -215,12 +215,12 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 10rem;
+      height: 5rem;
       padding: 0 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 6rem;
+      gap: 8rem;
       background-color: var(--color-light);
       z-index: 999;
     }
@@ -232,7 +232,7 @@
       text-decoration: none;
       font-size: clamp(1rem, 1.2vw, 2rem);
       font-weight: 500;
-      color: var(--color-text);
+      color: var(--color-primary);
       white-space: nowrap;
     }
 
