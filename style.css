@@ -32,7 +32,7 @@
 
 /* ==============COLOR THEMES============== */
     :root {
-        --color-primary: #D98E77;
+        --color-primary: #707295;
         --color-secondary: #1e2a44;
         --color-light: #E6E6E6;
         --color-text: #333;
@@ -42,7 +42,7 @@
     }
 
     [data-theme="dark"] {
-        --color-primary: #D98E77;
+        --color-primary: #86956f;
         --color-secondary: #0f172a;
         --color-light: #D98E77;
         --color-text: #e5e5e5;
