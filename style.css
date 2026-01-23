@@ -90,9 +90,9 @@
     
     #hero-animation {
       background: transparent;
-      width: 100%;
+      width: 150%;
       height: 500px;
-      transform: translateY(-20px);  /* fixed unit */
+      transform: translateY(-100px);  /* fixed unit */
     }
 
 
@@ -207,13 +207,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      max-height: 5rem;
+      max-height: 10rem;
       padding: 0 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 6rem;
-      background-color: #f4e9e0;
+      background-color: var(--color--light);
       z-index: 999;
     }
 
