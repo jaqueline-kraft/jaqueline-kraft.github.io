@@ -255,7 +255,8 @@
       align-items: center;
       text-decoration: none;
       font-size: clamp(1rem, 1.2vw, 2rem);
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 1.5;
       color: var(--color-primary);
       white-space: nowrap;
     }
