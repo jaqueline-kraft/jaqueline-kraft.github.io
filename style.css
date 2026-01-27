@@ -206,7 +206,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
-      font-size: 0.9rem;
+      font-size: clamp(0.9rem, 1vw, 1.5rem);
       white-space: nowrap;
     }
 
@@ -223,7 +223,7 @@
       letter-spacing: 0.1rem;
       font-family: inherit;
       cursor: pointer;
-      padding: 0.1rem 0.5rem;
+      padding: 0.01rem 0.5rem;
       color: var(--color-text);
     }
 
@@ -242,7 +242,7 @@
       height: 4rem;
       padding: 0 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       gap: 5rem;
       background-color: var(--color-light);
@@ -254,7 +254,7 @@
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      font-size: clamp(1rem, 1.2vw, 2rem);
+      font-size: clamp(0.9rem, 1vw, 1.5rem);
       font-weight: 600;
       letter-spacing: 1.5;
       color: var(--color-primary);
