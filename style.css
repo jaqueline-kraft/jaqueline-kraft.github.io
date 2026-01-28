@@ -68,6 +68,7 @@
         --bg-page: #f6f5f3;
         --color-white: #ffffff;
         --color-landing: #f6f5f3;
+
     }
     
     /* mobile */
@@ -89,7 +90,8 @@
         --color-switch: #ccc;
         --bg-page: #3a404f;
         --color-white: #ffffff;
-        --color-landing: #2a2e3a;
+        --color-landing: #E6E6E6;
+
     }
 
 /* ==============GLOBAL STYLES============== */
@@ -261,24 +263,58 @@
       gap: 5rem;
       background-color: var(--color-topnav);
       z-index: 999;
+
+      /* hidden by default */
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    body:hover .top-nav,
+    .top-nav:hover {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .nav-item {
-        position: relative;
-        display: flex;
-        align-items: center;
+      position: relative;
+      display: flex;
+      align-items: center;
     }
 
+    /* ===== SUB-NAVIGATION ===== */
     .sub-nav {
       position: absolute;
       top: 100%;
       left: -5%;
       width: 120%;
-      align-items: center;
-      display: none; /* versteckt */
       background: var(--color-topnav);
-      padding: 1rem 1rem;
       border-radius: 10px;
+      overflow: hidden;
+
+      max-height: 0;            
+      opacity: 0;
+      transform: translateY(-10px);
+
+      transition:
+        max-height 0.35s ease,
+        opacity 0.25s ease,
+        transform 0.35s ease;
+
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0;               
+    }
+
+    .nav-item:hover .sub-nav {
+      max-height: 500px;       
+      opacity: 1;
+      transform: translateY(0);
+      padding: 1rem;
+      pointer-events: auto;
     }
 
     .sub-nav a {
@@ -291,11 +327,12 @@
       text-decoration: none;
     }
 
-    .nav-item:hover .sub-nav {
-      display: block; 
-
+    .sub-nav a.active {
+      font-weight: 600; /* heavier font when active */
+      color: var(--color-blue2white); /* optional, to highlight */
     }
 
+    /* ===== MAIN NAV LINKS ===== */
     .top-nav .nav-main {
       display: inline-flex;
       align-items: center;
@@ -307,27 +344,19 @@
       white-space: nowrap;
     }
 
-    .top-nav .nav-main:hover {
-      color: var(--color-blue2white);
-    }
-
+    .top-nav .nav-main:hover,
     .top-nav .nav-main.active {
       color: var(--color-blue2white);
     }
 
-    .top-nav {
-      transition: background-color 0.3s ease;
-    }
-
-    .top-nav {
-      transition: background-color 0.3s ease;
-    }
-
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       :root {
         --nav-height: 60px;
       }
     }
+
+
 
 /* ==============NAV LOGO============== */
 
