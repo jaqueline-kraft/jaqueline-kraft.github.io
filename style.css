@@ -2,7 +2,7 @@
     @font-face {
         font-family: 'Montserrat Thin';
         src: url('fonts/Montserrat-Thin.woff2') format('woff2');
-        font-weight: 100;
+        font-weight: 200;
         font-style: normal;
         font-display: swap;
     }
@@ -59,6 +59,7 @@
 
         --color-blue2white: #364866;
         --color-orange2white: #d98e77;
+        --color-blue2orange: #364866;
         --color-topnav:#E6E6E6;
         --color-line: #d98e77;
         --color-text: #333;
@@ -79,12 +80,13 @@
     [data-theme="dark"] {
         --color-blue2white: #ffffff;
         --color-orange2white: #ffffff;
-        --color-topnav:#d98e77;
+        --color-blue2orange: #d98e77;
+        --color-topnav:#2a2e3a;
         --color-line: #e5e5e5;
         --color-text: #e5e5e5;
         --color-lightgreyswitch: #ffffff;
         --color-switch: #ccc;
-        --bg-page: #2a2e3a;
+        --bg-page: #3a404f;
         --color-white: #ffffff;
     }
 
@@ -259,37 +261,44 @@
 
     .nav-item {
         position: relative;
+        display: flex;
+        align-items: center;
     }
 
     .sub-nav {
       position: absolute;
-      top: 100%; /* direkt unter dem Menüpunkt */
-      left: 0;
+      top: 100%;
+      left: -5%;
+      width: 120%;
+      align-items: center;
       display: none; /* versteckt */
       background: var(--color-topnav);
-      padding: 0.5rem 1rem;
+      padding: 1rem 1rem;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .sub-nav a {
       display: block;
-      padding: 0.3rem 0;
+      padding: 0.6rem 0;
       color: var(--color-text);
+      font-size: clamp(0.6rem, 0.8vw, 0.8rem);
+      font-weight: 200;
+      letter-spacing: 0.08rem;
       text-decoration: none;
     }
 
     .nav-item:hover .sub-nav {
-      display: block; /* zeigt das Submenu beim hover */
+      display: block; 
+
     }
 
     .top-nav .nav-main {
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      font-size: clamp(0.9rem, 1vw, 1.5rem);
+      font-size: clamp(0.8rem, 0.9vw, 1rem);
       font-weight: 600;
-      letter-spacing: 0.1;
+      letter-spacing: 0.08rem;
       color: var(--color-blue2white);
       white-space: nowrap;
     }
@@ -302,10 +311,26 @@
       color: var(--color-blue2white);
     }
 
+    .top-nav {
+      transition: background-color 0.3s ease;
+    }
+
+    .top-nav {
+      transition: background-color 0.3s ease;
+    }
+
     @media (max-width: 768px) {
       :root {
         --nav-height: 60px;
       }
+    }
+
+/* ==============NAV LOGO============== */
+
+    .JK-logo-svg {
+      width: 120px;
+      height: 120px;
+      display: block;
     }
 
 
@@ -445,14 +470,18 @@
         color: var(--color-text);
         font-weight: 400;
         text-align: center;
+        letter-spacing: 0.08rem;
+
     }
 
     section h4 {
-        font-size: clamp(1rem, 1.2vw, 1.8rem);
+        font-size: clamp(0.8rem, 1vw, 1.2rem);
         padding: 0.5rem 0;
         color: var(--color-text);
-        font-weight: 300;
+        font-weight: 200;
         text-align: center;
+        letter-spacing: 0.08rem;
+
     }
 
     section p {
@@ -460,6 +489,8 @@
         margin-bottom: 1rem;
         text-align: center;
         font-weight: 100;
+        letter-spacing: 0.08rem;
+
     }
 
     .line {
@@ -549,8 +580,10 @@
         border: 3px solid var(--color-blue2white);
     }
 
-    .about-text {
-        flex: 1;
+    .about-text p {
+        color: var(--color-text);
+        text-align: center;
+        letter-spacing: 0.08rem;
     }
 
 /* ==============CONTACT SECTION============== */
@@ -559,7 +592,7 @@
     }
 
     #contact h2 {
-        color: var(--color-text);
+        color: var(--color-blue2white);
         font-size: clamp(2rem, 5vw, 3rem);
         text-align: center;
     }
@@ -567,6 +600,8 @@
     #contact p {
         color: var(--color-text);
         text-align: center;
+        letter-spacing: 0.08rem;
+
     }
 
     #contact a {
@@ -603,6 +638,7 @@
         font-size: 0.9rem;
         color: var(--color-blue2white);
         text-align: center;
+        letter-spacing: 0.08rem;
     }
 
 /* ==============RESPONSIVE - TABLET============== */
