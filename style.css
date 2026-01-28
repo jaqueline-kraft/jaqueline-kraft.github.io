@@ -67,6 +67,7 @@
         --color-switch: #ccc;
         --bg-page: #f6f5f3;
         --color-white: #ffffff;
+        --color-landing: #f6f5f3;
     }
     
     /* mobile */
@@ -88,6 +89,7 @@
         --color-switch: #ccc;
         --bg-page: #3a404f;
         --color-white: #ffffff;
+        --color-landing: #2a2e3a;
     }
 
 /* ==============GLOBAL STYLES============== */
@@ -113,9 +115,9 @@
 /* ============== LANDING HEADER ============== */
 
     .hero {
-      min-height: 70vh;
+      min-height: 65vh;
       padding-top: var(--nav-height);
-      background-color: var(--color-white);
+      background-color: var(--color-landing);
       display: flex;
       align-items: flex-start;
       justify-content: center;
