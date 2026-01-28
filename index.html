@@ -108,7 +108,7 @@
                 </span>
             </a>
 
-            <a href="#about" class="nav-main">
+            <a href="#contact" class="nav-main">
                 <span class="dot"></span>
                 <span class="label">
                     <span data-lang="de">KONTAKT</span>
@@ -153,7 +153,7 @@
             </h1>
         </div>
     <section>    
-        
+
 <!-- PROJEKT 1 - Freie Arbeiten -->
     <section id="projekt-1">
         <div class="section-content">
@@ -670,6 +670,21 @@
         
 <!-- SCRIPTS -->
         <script>
+        /* ============================================
+           NAVIGATOR SUB BOLD
+        ============================================ */
+        const subNavLinks = document.querySelectorAll('.sub-nav a');
+
+        subNavLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            // Remove active from all links
+            subNavLinks.forEach(l => l.classList.remove('active'));
+
+            // Add active to clicked link
+            e.currentTarget.classList.add('active');
+          });
+        });
+
         /* ============================================
            LANDING / LOTTIE SCROLL
         ============================================ */
