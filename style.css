@@ -113,11 +113,13 @@
 /* ============== LANDING HEADER ============== */
 
     .hero {
-      min-height: 100vh;
+      min-height: 70vh;
       padding-top: var(--nav-height);
+      background-color: var(--color-white);
       display: flex;
       align-items: flex-start;
       justify-content: center;
+      position: relative;
     }
     
     #lottie-wrapper {
@@ -453,6 +455,17 @@
         margin: 0 auto;
         margin-bottom: 20px;
         padding-inline: clamp(1rem, 2vw, 4rem);
+    }
+
+    section h1 {
+        margin-top: 0.67rem;
+        margin-bottom: 0.67rem;
+        font-weight: 600;
+        font-size: clamp(3rem, 3.5vw, 5rem);
+        text-align: center;
+        letter-spacing: 0.08rem;
+        color: var(--color-blue2orange);
+        font: Circle.std;
     }
 
     section h2 {
