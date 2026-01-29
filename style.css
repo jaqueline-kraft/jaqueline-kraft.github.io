@@ -33,7 +33,7 @@
 
     @font-face {
         font-family: 'Montserrat SemiBold';
-        src: url('fontsMontserrat-SemiBold.woff2') format('woff2');
+        src: url('fonts/Montserrat-SemiBold.woff2') format('woff2');
         font-weight: 600;
         font-style: normal;
         font-display: swap;
@@ -97,9 +97,10 @@
 /* ==============GLOBAL STYLES============== */
     html {
         scroll-behavior: smooth;
-        [data-lang="en"] {
-            display: none;
     }
+
+    [data-lang="en"] {
+        display: none;
     }
 
     body {
@@ -110,8 +111,8 @@
         transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    a {
-        color: var(--color-primary);
+    h2 {
+      scroll-margin-top: 90px;
     }
 
 /* ============== LANDING HEADER ============== */
@@ -138,17 +139,13 @@
       height: auto;
     }
 
-
-
 /* ============== HEADER CONTROLS ============== */
 
     .header-controls {
-      position: fixed;
       top: 0;
       right: 20px;
       height: 4rem;
       z-index: 9999;
-
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -213,6 +210,7 @@
     .switch input:checked + .slider::before {
       transform: translateX(22px);
     }
+
 /* ============== LANGUAGE SWITCH ============== */
 
     .lang-switch {
@@ -221,7 +219,7 @@
       gap: 0.3rem;
       font-size: clamp(0.9rem, 1vw, 1.5rem);
       white-space: nowrap;
-      color-text: #fff;
+      color: #939393;
     }
 
     .lang-separator {
@@ -250,32 +248,32 @@
 
 /* ============== NAVIGATION ============== */
 
-    .top-nav {
+    .top-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 4rem;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5rem;
-      background-color: var(--color-topnav);
-      z-index: 999;
 
-      /* hidden by default */
-      transform: translateY(-100%);
-      opacity: 0;
-      pointer-events: none;
-      transition: transform 0.35s ease, opacity 0.35s ease;
+      display: grid;
+      grid-template-columns:
+        minmax(150px, auto)   
+        1fr                  
+        minmax(150px, auto); 
+
+      align-items: center;
+      padding: 0 1.5rem;
+      background-color: var(--color-topnav);
+      z-index: 9999;
     }
 
-    body:hover .top-nav,
-    .top-nav:hover {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
+    .top-nav {  
+      display: flex;
+      justify-content: center;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      font-size: clamp(0.8rem, 1vw, 1.2rem);
+      min-width: 0;
+
     }
 
     .nav-item {
@@ -298,11 +296,6 @@
       opacity: 0;
       transform: translateY(-10px);
 
-      transition:
-        max-height 0.35s ease,
-        opacity 0.25s ease,
-        transform 0.35s ease;
-
       pointer-events: none;
       display: flex;
       flex-direction: column;
@@ -321,7 +314,7 @@
       display: block;
       padding: 0.6rem 0;
       color: var(--color-text);
-      font-size: clamp(0.6rem, 0.8vw, 0.8rem);
+      font-size: clamp(0.5rem, 0.7vw, 0.8rem);
       font-weight: 200;
       letter-spacing: 0.08rem;
       text-decoration: none;
@@ -332,40 +325,83 @@
       color: var(--color-blue2white); /* optional, to highlight */
     }
 
+
     /* ===== MAIN NAV LINKS ===== */
     .top-nav .nav-main {
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      font-size: clamp(0.8rem, 0.9vw, 1rem);
+      font-size: clamp(0.7rem, 0.9vw, 1rem);
       font-weight: 600;
       letter-spacing: 0.08rem;
       color: var(--color-blue2white);
       white-space: nowrap;
     }
 
-    .top-nav .nav-main:hover,
-    .top-nav .nav-main.active {
-      color: var(--color-blue2white);
-    }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      :root {
-        --nav-height: 60px;
+    @media (max-width: 900px) {
+      .top-header {
+        display: grid;
+        grid-template-columns: auto auto;
+        height: 4rem; 
+        padding: 0 1rem;
+        align-items: center;
+        overflow: hidden; 
+      }
+
+      .top-logo {
+        justify-self: start;
+      }
+
+      .top-nav {
+        display: none;
+      }
+
+      .header-controls {
+        justify-self: end;
+        height: 100%; 
+        padding: 0;
+      }
+
+      .header-logo {
+        height: 100%;
+        padding-left: 0;
+      }
+
+      .header-logo svg {
+        max-height: 100%;
       }
     }
 
-
-
 /* ==============NAV LOGO============== */
 
-    .JK-logo-svg {
-      width: 120px;
-      height: 120px;
-      display: block;
+    .header-logo {
+      padding-left: 5rem;  
+      display: flex;
+      align-items: center;
+      justify-self: start;
+      flex: 0 0 auto;
+      white-space: nowrap;
     }
 
+    .header-logo svg {
+      width: 40px; 
+      height: 40px;
+      flex-shrink: 0;
+      max-height: 100%;
+      fill: var(--color-blue2orange);
+    }
+
+
+    .JK-Logo2 {
+      width: 100px;
+      height: 80px;
+      display: block;
+      align-items: center;
+      fill: var(--color-blue2orange);
+
+    }
 
 /* ==============PORTFOLIO GRID============== */
 
@@ -427,6 +463,7 @@
         color: var(--color-text);
         text-align: left;
     }
+
 /* ============== PROJECT 4: 3 IMAGE MINI GRID ============== */
 
     .project4-item {
@@ -446,10 +483,9 @@
     }
 
     .project4-img img {
-      grid-column: span ;
+      grid-column: span 1;
       width: 100%;
       height: 100%;
-      height: span 1;
       object-fit: cover;
       object-position: left center;
       display: block;
@@ -491,12 +527,11 @@
     section h1 {
         margin-top: 0.67rem;
         margin-bottom: 0.67rem;
-        font-weight: 600;
+        font-weight: 200;
         font-size: clamp(3rem, 3.5vw, 5rem);
         text-align: center;
-        letter-spacing: 0.08rem;
+        letter-spacing: 0.2rem;
         color: var(--color-blue2orange);
-        font: Circle.std;
     }
 
     section h2 {
@@ -561,7 +596,7 @@
     }
 
     .logo-center {
-      top: 50;
+      top: 50%;
       bottom: 50%;
       z-index: 2;
     }
@@ -685,42 +720,4 @@
         letter-spacing: 0.08rem;
     }
 
-/* ==============RESPONSIVE - TABLET============== */
-    @media (max-width: 768px) {
-        header {
-            padding: 4rem 0;
-            min-height: 300px;
-        }
-        
-        .header-content,
-        .section-content {
-            padding: 0 1.5rem;
-        }
-        
-        .portfolio-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        
-        .contact-section {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-    }
 
-/* ==============RESPONSIVE - MOBILE============== */
-    @media (max-width: 480px) {
-        header {
-            padding: 4rem 0;
-            min-height: 250px;
-        }
-        
-        .header-content,
-        .section-content {
-            padding: 0 2rem;
-        }
-        
-        .portfolio-grid {
-            grid-template-columns: 1fr;
-        }
-    }
