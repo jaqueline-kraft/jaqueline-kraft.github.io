@@ -29,36 +29,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ============================================
-     LANDING / LOTTIE SCROLL
-  ============================================ */
-  const hero = document.getElementById("hero-animation");
-  const scrollArea = document.querySelector(".hero");
-  if (hero && scrollArea && typeof lottie !== "undefined") {
-    const animation = lottie.loadAnimation({
-      container: hero,
-      renderer: "svg",
-      loop: false,
-      autoplay: false,
-      path: "hero-animation.json"
-    });
+   /* ============================================
+      LANDING / LOTTIE SCROLL
+   ============================================ */
+   const hero = document.getElementById("hero-animation");
+   const scrollArea = document.querySelector(".hero");
+   
+   if (hero && scrollArea && typeof lottie !== "undefined") {
+   
+     // Use root-relative path so it works on any page
+     const animation = lottie.loadAnimation({
+       container: hero,
+       renderer: "svg",
+       loop: false,
+       autoplay: false,
+       path: "/hero-animation.json"  // ← root-relative
+     });
+   
+     animation.addEventListener("DOMLoaded", () => {
+       animation.goToAndStop(0, true);
+   
+       window.addEventListener("scroll", () => {
+         const rect = scrollArea.getBoundingClientRect();
+         if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+         if (rect.top >= 0) {
+           animation.goToAndStop(0, true);
+           return;
+         }
+         const scrollProgress = -rect.top / rect.height;
+         const progress = Math.min(Math.max(scrollProgress, 0), 1);
+         animation.goToAndStop(progress * animation.totalFrames, true);
+       });
+     });
+   }
 
-    animation.addEventListener("DOMLoaded", () => {
-      animation.goToAndStop(0, true);
-
-      window.addEventListener("scroll", () => {
-        const rect = scrollArea.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-        if (rect.top >= 0) {
-          animation.goToAndStop(0, true);
-          return;
-        }
-        const scrollProgress = -rect.top / rect.height;
-        const progress = Math.min(Math.max(scrollProgress, 0), 1);
-        animation.goToAndStop(progress * animation.totalFrames, true);
-      });
-    });
-  }
 
   /* ============================================
      ACCESS CONTROL
