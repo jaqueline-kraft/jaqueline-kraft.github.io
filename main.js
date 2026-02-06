@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
    /* ============================================
       LANDING / LOTTIE SCROLL
    ============================================ */
-   const hero = document.getElementById("hero-animation");
-   const scrollArea = document.querySelector(".hero");
+   const hero = document.getElementById("home-animation");
+   const scrollArea = document.querySelector(".home");
    
    if (hero && scrollArea && typeof lottie !== "undefined") {
    
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
        renderer: "svg",
        loop: false,
        autoplay: false,
-       path: "https://raw.githubusercontent.com/jaqueline-kraft/jaqueline-kraft.github.io/main/hero-animation.json"
+       path: "/home-animation.json"
      });
    
      animation.addEventListener("DOMLoaded", () => {
