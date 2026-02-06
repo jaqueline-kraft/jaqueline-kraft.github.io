@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
        renderer: "svg",
        loop: false,
        autoplay: false,
-       path: "hero-animation.json"  // ← root-relative
+       path: "https://raw.githubusercontent.com/jaqueline-kraft/jaqueline-kraft.github.io/main/hero-animation.json"
      });
    
      animation.addEventListener("DOMLoaded", () => {
