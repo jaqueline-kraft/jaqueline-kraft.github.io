@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
        renderer: "svg",
        loop: false,
        autoplay: false,
-       path: "/hero-animation.json"  // ← root-relative
+       path: "./hero-animation.json"  // ← root-relative
      });
    
      animation.addEventListener("DOMLoaded", () => {
