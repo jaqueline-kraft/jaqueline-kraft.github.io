@@ -189,17 +189,18 @@
         .home {
             min-height: auto;
             height: 300px;
+            width: 316px;
             margin-bottom: 2rem;
         }
 
         #lottie-wrapper {
-            height: 150%;
-            width: 150%;
+            height: 100%;
+            width: 100%;
         }
 
         #home-animation {
-            height: 150%;
-            width: 150%;
+            height: 100%;
+            width: 100%;
         }
     }
 
@@ -1107,8 +1108,8 @@
 
     @media(max-width: 900px) {
         .text-box {
-            max-width: 300px;   
-            margin: 0 auto;   
+            width: 316px; 
+            margin: 0 auto;
     
         }
 
@@ -1138,11 +1139,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .section-content-filler {
-            max-width: 300px;       
-            margin: 0 auto;   
 
-        }
     }    
 
 /* ============== LINE ============== */
