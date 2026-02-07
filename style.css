@@ -1,4 +1,4 @@
-/* ==============FONT IMPORT - Gaultier============== */
+/* ============== FONT IMPORT ============== */
     @font-face {
         font-family: 'Montserrat Thin';
         src: url('fonts/Montserrat-Thin.woff2') format('woff2');
@@ -47,14 +47,14 @@
         font-display: swap;
     }
 
-/* ==============RESET============== */
+/* ============== RESET ============== */
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-/* ==============DEBUG OUTLINES============== */
+/* ============== DEBUG OUTLINES ============== */
     
     /*
 
@@ -100,7 +100,7 @@
 
     */
 
-/* ==============COLOR THEMES============== */
+/* ============== COLOR THEMES ============== */
     :root {
 
         --color-blue2white: #364866;
@@ -142,7 +142,7 @@
 
     }
 
-/* ==============GLOBAL STYLES============== */
+/* ============== GLOBAL STYLES ============== */
     html {
         scroll-behavior: smooth;
     }
@@ -212,7 +212,7 @@
         }
     }
 
-/* ==============JK LOGO HEADER ============== */
+/* ============== JK LOGO HEADER ============== */
 
     .header-logo {
       padding-left: 5rem;  
@@ -380,7 +380,7 @@
       display: flex;
       justify-content: center;
       gap: clamp(1rem, 2vw, 1.5rem);
-      font-size: clamp(1rem, 1.2vw, 1.3rem);
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
       min-width: 0;
 
     }
@@ -438,7 +438,7 @@
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      font-size: clamp(0.7rem, 0.9vw, 1rem);
+      font-size: clamp(0.8rem, 1.1vw, 1.1rem);
       font-weight: 600;
       letter-spacing: 0.08rem;
       color: var(--color-blue2white);
@@ -546,7 +546,7 @@
       margin: 6px 0;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       .nav-toggle {
         display: block;
       }
@@ -955,7 +955,7 @@
     }
 
     section h2 {
-        font-size: clamp(1.2rem, 2vw, 2.5rem);
+        font-size: clamp(1.2rem, 2.1vw, 2.5rem);
         margin-bottom: 0.5rem;
         color: var(--color-blue2white);
         font-weight: 600;
@@ -966,7 +966,7 @@
     }
 
     section h3 {
-        font-size: clamp(1.1rem, 2vw, 2.5rem);
+        font-size: clamp(1.1rem, 2.2vw, 2.5rem);
         margin-bottom: 0.5rem;
         color: #D98e77;
         font-weight: 600;
@@ -989,7 +989,7 @@
     }
 
     section p {
-        font-size: clamp(0.7rem, 0.8vw, 0.85rem);
+        font-size: clamp(0.7rem, 0.9vw, 1rem);
         color: var(--color-text);
         text-align: center;
         font-weight: 300;
@@ -1340,7 +1340,7 @@
     }
 
     footer p {
-        font-size: clamp(0.5rem, 0.8vw, 0.9rem);
+        font-size: clamp(0.6rem, 0.9vw, 0.9rem);
         color: var(--color-blue2white);
         letter-spacing: 0.08rem;
     }
@@ -1351,7 +1351,7 @@
     }
 
     footer a {
-        font-size: clamp(0.5rem, 0.8vw, 0.9rem);
+        font-size: clamp(0.6rem, 0.9vw, 0.9rem);
         color: var(--color-blue2white);
         text-decoration: none;
         letter-spacing: 0.08rem;
