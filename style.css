@@ -56,7 +56,7 @@
 
 /* ==============DEBUG OUTLINES============== */
     
-    /*  
+     
 
     .home {
       outline: 2px solid orange;
@@ -177,7 +177,7 @@
 /* ============== LANDING HEADER ============== */
 
     .home {
-      min-height: 300px;
+      min-height: 260px;
       padding-top: var(--nav-height);
       background-color: var(--color-landing);
       display: flex;
@@ -201,18 +201,13 @@
 
     @media (max-width: 900px) {
         .home {
-            height: 200px;
+            height: 260px;
             margin-bottom: 2rem;
         }
 
-        #lottie-wrapper {
-            height: 100%;
-            width: 100%;
-        }
-
         #home-animation {
-            width: 316px;
-            height: 200px;
+            width: 315px;
+            height: 180px;
             align-items: center;
         }
     }
@@ -1136,12 +1131,12 @@
        
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            height: auto;
+            height: 150px;
         }
 
         .text-box-cat-long {
             background-color: var(--color-background); 
-            padding: 0.7rem 0.8rem; 
+            padding: 0.7rem 1rem; 
             grid-column: span 2;
             border-radius: 12px; 
             border: 1px solid var(--color-background);
@@ -1345,7 +1340,7 @@
     }
 
     footer p {
-        font-size: 0.9rem;
+        font-size: clamp(0.7rem, 0.8vw, 0.9rem);
         color: var(--color-blue2white);
         letter-spacing: 0.08rem;
     }
@@ -1356,6 +1351,7 @@
     }
 
     footer a {
+        font-size: clamp(0.7rem, 0.8vw, 0.9rem);
         color: var(--color-blue2white);
         text-decoration: none;
         font-size: 0.9rem;
