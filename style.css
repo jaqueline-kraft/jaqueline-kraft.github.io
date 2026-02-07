@@ -56,7 +56,7 @@
 
 /* ==============DEBUG OUTLINES============== */
     
-     
+    /*
 
     .home {
       outline: 2px solid orange;
@@ -206,7 +206,7 @@
         }
 
         #home-animation {
-            width: 315px;
+            width: 390px;
             height: 180px;
             align-items: center;
         }
@@ -1340,7 +1340,7 @@
     }
 
     footer p {
-        font-size: clamp(0.7rem, 0.8vw, 0.9rem);
+        font-size: clamp(0.5rem, 0.8vw, 0.9rem);
         color: var(--color-blue2white);
         letter-spacing: 0.08rem;
     }
@@ -1351,7 +1351,7 @@
     }
 
     footer a {
-        font-size: clamp(0.7rem, 0.8vw, 0.9rem);
+        font-size: clamp(0.5rem, 0.8vw, 0.9rem);
         color: var(--color-blue2white);
         text-decoration: none;
         font-size: 0.9rem;
