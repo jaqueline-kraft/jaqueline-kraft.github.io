@@ -55,8 +55,22 @@
     }
 
 /* ==============DEBUG OUTLINES============== */
-     
-  /*  .section-content {
+    
+    /*  
+
+    .home {
+      outline: 2px solid orange;
+    }
+
+    #lottie-wrapper {
+        outline: 2px solid green;
+    }
+
+    #home-animation {
+        outline: 2px solid pink;
+    }
+
+  .section-content {
       outline: 2px solid red;
     }
 
@@ -163,7 +177,7 @@
 /* ============== LANDING HEADER ============== */
 
     .home {
-      min-height: 60vh;
+      min-height: 300px;
       padding-top: var(--nav-height);
       background-color: var(--color-landing);
       display: flex;
@@ -187,8 +201,7 @@
 
     @media (max-width: 900px) {
         .home {
-            min-height: 200px;
-            width: 316px;
+            height: 200px;
             margin-bottom: 2rem;
         }
 
@@ -198,8 +211,9 @@
         }
 
         #home-animation {
-            height: 100%;
-            width: 100%;
+            width: 316px;
+            height: 200px;
+            align-items: center;
         }
     }
 
