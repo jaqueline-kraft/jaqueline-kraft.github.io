@@ -114,7 +114,7 @@
         --color-switch: #ccc;
         --color-background: #ffffff;
         --color-white: #ffffff;
-        --color-landing: #f6f5f3;
+        --color-landing: #e6e6e6;
 
     }
     
@@ -138,7 +138,7 @@
         --color-switch: #ccc;
         --color-background: #3a404f;
         --color-white: #ffffff;
-        --color-landing: #E6E6E6;
+        --color-landing: #e6e6e6;
 
     }
 
@@ -206,7 +206,7 @@
         }
 
         #home-animation {
-            width: 390px;
+            width: 420px;
             height: 180px;
             align-items: center;
         }
