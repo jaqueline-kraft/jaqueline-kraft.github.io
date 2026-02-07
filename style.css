@@ -189,7 +189,6 @@
         .home {
             min-height: auto;
             height: 300px;
-            width: 316px;
             margin-bottom: 2rem;
         }
 
@@ -1123,12 +1122,12 @@
        
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            height: 125px;
+            height: auto;
         }
 
         .text-box-cat-long {
             background-color: var(--color-background); 
-            padding: 1.5rem 1.5rem; 
+            padding: 0.5rem 1rem; 
             grid-column: span 2;
             border-radius: 12px; 
             border: 1px solid var(--color-background);
