@@ -187,15 +187,19 @@
 
     @media (max-width: 900px) {
         .home {
-            max-height: 100px;
+            min-height: auto;
+            height: 300px;
+            margin-bottom: 2rem;
         }
 
         #lottie-wrapper {
-            height: 30%;
+            height: 100%;
+            width: 100%;
         }
 
         #home-animation {
-            height: 30%;
+            height: 100%;
+            width: 100%;
         }
     }
 
