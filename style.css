@@ -187,8 +187,15 @@
 
     @media (max-width: 900px) {
         .home {
-            max-width: 320px;
-            height: 200px;
+            max-height: 100px;
+        }
+
+        #lottie-wrapper {
+            height: 30%;
+        }
+
+        #home-animation {
+            height: 30%;
         }
     }
 
@@ -969,10 +976,10 @@
     }
 
     section p {
-        font-size: clamp(0.6rem, 0.7vw, 0.8rem);
+        font-size: clamp(0.7rem, 0.8vw, 0.85rem);
         color: var(--color-text);
         text-align: center;
-        font-weight: 100;
+        font-weight: 300;
         letter-spacing: 0.08rem;
 
     }
@@ -1107,7 +1114,7 @@
             grid-column: span 2;
             border-radius: 12px; 
             border: 1px solid var(--color-background);
-            margin: 0 0 5rem 0rem; 
+            margin: 0 0 1rem 0rem; 
        
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -1120,7 +1127,7 @@
             grid-column: span 2;
             border-radius: 12px; 
             border: 1px solid var(--color-background);
-            margin: 0 0 2rem 0rem; 
+            margin: 0 0 1rem 0rem; 
             height: 150px;
        
             backdrop-filter: blur(5px);
@@ -1174,7 +1181,7 @@
 
     @media (max-width: 900px) {
       .line {
-        max-width: calc(300px * 2 + 1rem * 1);
+        max-width: 316px;
       }
     }
 
@@ -1186,7 +1193,7 @@
 
     @media (max-width: 900px) {
       .line-orange {
-        max-width: calc(300px * 2 + 1rem * 1);
+        max-width: 316px;
       }
     }
 
@@ -1231,6 +1238,7 @@
     @media (max-width: 900px) {
         .logo-cat {
             width:200px;
+            transform: translateY(-205px);
         }
     }
 
