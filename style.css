@@ -919,7 +919,7 @@
         @media(max-width: 900px){ /* motion design */
         .portfolio-grid.project-9 {
             grid-template-columns: repeat(2, 150px);
-            grid-auto-rows: 150px;
+            grid-auto-rows: 300px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-1"
