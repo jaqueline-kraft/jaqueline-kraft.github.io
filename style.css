@@ -1,47 +1,47 @@
 /* ============== FONT IMPORT ============== */
     @font-face {
-        font-family: 'Montserrat Thin';
-        src: url('fonts/Montserrat-Thin.woff2') format('woff2');
+        font-family: 'Avenir Light';
+        src: url('fonts/Avenir-Light.woff2') format('woff2');
         font-weight: 200;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat Light';
-        src: url('fonts/Montserrat-Light.woff2') format('woff2');
+        font-family: 'Avenir Light Oblique';
+        src: url('fonts/Avenir-Light-Oblique.woff2') format('woff2');
         font-weight: 300;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat Regular';
-        src: url('fonts/Montserrat-Regular.woff2') format('woff2');
+        font-family: 'Avenir Book';
+        src: url('fonts/Avenir-Book.woff2') format('woff2');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat Medium';
-        src: url('fonts/Montserrat-Medium.woff2') format('woff2');
+        font-family: 'Avenir Roman';
+        src: url('fonts/Avenir-Roman.woff2') format('woff2');
         font-weight: 500;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat SemiBold';
-        src: url('fonts/Montserrat-SemiBold.woff2') format('woff2');
+        font-family: 'Avenir Medium';
+        src: url('fonts/Avenir-Medium.woff2') format('woff2');
         font-weight: 600;
         font-style: normal;
         font-display: swap;
     }
 
     @font-face {
-        font-family: 'Montserrat Bold';
-        src: url('fonts/Montserrat-Bold.woff2') format('woff2');
+        font-family: 'Avenir Black';
+        src: url('fonts/Avenir-Black.woff2') format('woff2');
         font-weight: 700;
         font-style: normal;
         font-display: swap;
@@ -152,7 +152,7 @@
     }
 
     body {
-        font-family: 'Montserrat', 'Avenir', 'Futura', 'Helvetica-Neue', sans-serif;
+        font-family: 'Avenir', 'Futura', 'Helvetica-Neue', sans-serif;
         background-color: var(--color-background);
         color: var(--color-text);
         line-height: 1.4;
@@ -966,7 +966,7 @@
     }
 
     section h3 {
-        font-size: clamp(1.1rem, 2.2vw, 2.5rem);
+        font-size: clamp(1.5rem, 2.2vw, 2.5rem);
         margin-bottom: 0.5rem;
         color: #D98e77;
         font-weight: 600;
@@ -1092,12 +1092,6 @@
         .text-box {
             max-width: 872px;    
             margin: 0 auto;   
-        }
-
-        .section-content-filler {
-            max-width: 872px;  
-            margin: 0 auto;   
-     
         }
 
         .text-box-cat {
@@ -1272,23 +1266,61 @@
         align-items: center;
     }
 
-    .profile-img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid var(--color-blue2white);
+    .about-text p {
+        font-size: clamp(0.7rem, 1rem, 1.1rem);
+        font-weight: 200;
+        letter-spacing: 0.1rem;
+        padding: 1rem 0;
+        color: var(--color-blue2white);
     }
 
-    .about-text p {
-        color: var(--color-text);
-        text-align: center;
-        letter-spacing: 0.08rem;
+    .about-text h1 {
+        font-size: clamp(2rem, 2.5vw, 2.5rem);
+        font-weight: 200;
+        font: fabulosa;
+        letter-spacing: 0.15rem;
+        padding: 2rem 0;
+        color: var(--color-blue2white);
+
     }
+
+    .about-text h2 {
+        font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+        font-weight: 500;
+        letter-spacing: 0.4rem;
+        padding: 1rem 0;
+        color: var(--color-blue2white);
+        
+    }
+
+    .about-text h3 {
+        font-size: clamp(1.2rem, 1.8vw, 1.9rem);
+        font-weight: 200;
+        letter-spacing: 0.2rem;
+        padding: 0rem 0;
+        color: var(--color-blue2white);
+        
+        
+    }
+    
+    .about-text h4 {
+        font-size: clamp(1.2rem, 1.8vw, 1.9rem);
+        font-weight: 500;
+        letter-spacing: 0.2rem;
+        padding: 1rem 0;
+        color: var(--color-blue2white);
+    }
+
+
+
+
 
     .profile img {
         width:170px;
         height: auto;
+        display: flex;
+        justify-content: center;
+
     }
 
 /* ============== CONTACT SECTION ============== */
