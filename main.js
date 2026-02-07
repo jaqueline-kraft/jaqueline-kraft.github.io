@@ -88,29 +88,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* ============================================
-     DARK MODE
-  ============================================ */
+/* ============================================
+   DARK MODE
+============================================ */
   const themeToggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
   if (themeToggle) {
-    const savedTheme = localStorage.getItem("theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const savedTheme = localStorage.getItem("theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (savedTheme) {
-      root.dataset.theme = savedTheme;
-      themeToggle.checked = savedTheme === "dark";
-    } else if (systemDark) {
-      root.dataset.theme = "dark";
-      themeToggle.checked = true;
-    }
+      // Check saved theme first, then system preference
+      if (savedTheme) {
+          root.dataset.theme = savedTheme;
+          themeToggle.checked = savedTheme === "dark";
+      } else {
+          // Use system preference if no saved theme
+          const preferredTheme = systemDark ? "dark" : "light";
+          root.dataset.theme = preferredTheme;
+          themeToggle.checked = systemDark;
+      }
 
-    themeToggle.addEventListener("change", () => {
-      const theme = themeToggle.checked ? "dark" : "light";
-      root.dataset.theme = theme;
-      localStorage.setItem("theme", theme);
-    });
+      themeToggle.addEventListener("change", () => {
+          const theme = themeToggle.checked ? "dark" : "light";
+          root.dataset.theme = theme;
+          localStorage.setItem("theme", theme);
+      });
   }
+
 
   /* ============================================
      LANGUAGE SYSTEM
