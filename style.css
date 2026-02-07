@@ -185,6 +185,13 @@
       height: auto;
     }
 
+    @media (max-width: 900px) {
+        .home {
+            max-width: 320px;
+            height: 200px;
+        }
+    }
+
 /* ==============JK LOGO HEADER ============== */
 
     .header-logo {
@@ -235,6 +242,13 @@
       display: flex;
       align-items: center;  
       gap: 1rem;
+    }
+
+    @media (max-width: 360px) {
+        .header-controls {
+            right: 1rem;
+
+        }
     }
 
 /* ============== DARK MODE TOGGLE ============== */
@@ -290,7 +304,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
-      font-size: clamp(0.9rem, 1vw, 1.5rem);
+      font-size: clamp(0.7rem, 1vw, 1.5rem);
       white-space: nowrap;
       margin: 0;
       justify-self: auto;
@@ -518,7 +532,7 @@
       }
     }
    
-/* ==============GRID============== */
+/* ============== GRID ============== */
     
     .box {
 
@@ -663,7 +677,7 @@
       opacity: 1;
     }
 
-/* ==============RESPONSIVES============== */
+/* ============== RESPONSIVES ============== */
 
     @media(max-width: 1200px){ /* Katzenecke designs */
         .portfolio-grid.project-1 {
@@ -774,8 +788,8 @@
 
     @media(max-width: 900px){ /* Katzenecke designs */
         .portfolio-grid.project-1 {
-            grid-template-columns: repeat(2, 300px);
-            grid-template-rows: 300px 300px auto;
+            grid-template-columns: repeat(2, 150px);
+            grid-template-rows: 150px 150px auto;
             justify-content: center;
             grid-template-areas:
             "box-1 box-2"
@@ -787,8 +801,8 @@
 
     @media(max-width: 900px){ /* Typo designs */
         .portfolio-grid.project-2 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 300px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-2"
@@ -800,8 +814,8 @@
 
     @media(max-width: 900px){ /* moderne designs */
         .portfolio-grid.project-3 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 300px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-2"
@@ -813,8 +827,8 @@
 
     @media(max-width: 900px){ /* Farbvarianten */
         .portfolio-grid.project-4 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 300px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-2"
@@ -826,8 +840,8 @@
 
     @media(max-width: 900px){ /* playful */
         .portfolio-grid.project-5 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 300px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-2"
@@ -839,8 +853,8 @@
 
         @media(max-width: 900px){ /* expressive */
         .portfolio-grid.project-6 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 300px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-2 box-2"
@@ -853,8 +867,8 @@
 
     @media(max-width: 900px){ /* layout */
         .portfolio-grid.project-7 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 300px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-1"
@@ -866,8 +880,8 @@
 
     @media(max-width: 900px){ /* classy */
         .portfolio-grid.project-8 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 300px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-1"
@@ -879,8 +893,8 @@
 
         @media(max-width: 900px){ /* motion design */
         .portfolio-grid.project-9 {
-            grid-template-columns: repeat(2, 300px);
-            grid-auto-rows: 600px;
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-1"
@@ -888,7 +902,7 @@
         }
     }
 
-/* ==============SECTIONS============== */
+/* ============== SECTIONS ============== */
     section {
         padding: 0rem 0;
     }
@@ -914,14 +928,14 @@
         margin-top: 0.5rem;
         margin-bottom: 1rem;
         font-weight: 200;
-        font-size: clamp(3rem, 3.5vw, 5rem);
+        font-size: clamp(1.5rem, 2.5vw, 4rem);
         text-align: center;
         letter-spacing: 0.2rem;
         color: #D98e77;
     }
 
     section h2 {
-        font-size: clamp(1.8rem, 2vw, 2.5rem);
+        font-size: clamp(1.2rem, 2vw, 2.5rem);
         margin-bottom: 0.5rem;
         color: var(--color-blue2white);
         font-weight: 600;
@@ -932,7 +946,7 @@
     }
 
     section h3 {
-        font-size: clamp(1.8rem, 2vw, 2.5rem);
+        font-size: clamp(1.1rem, 2vw, 2.5rem);
         margin-bottom: 0.5rem;
         color: #D98e77;
         font-weight: 600;
@@ -943,7 +957,7 @@
     }
 
     section h4 {
-        font-size: clamp(2rem, 2.5vw, 3rem);
+        font-size: clamp(1rem, 2vw, 3rem);
         padding: 6rem 0 2rem;
         text-align: left;
         display: block;
@@ -955,6 +969,7 @@
     }
 
     section p {
+        font-size: clamp(0.6rem, 0.7vw, 0.8rem);
         color: var(--color-text);
         text-align: center;
         font-weight: 100;
@@ -1001,8 +1016,9 @@
     }
 
     .datenschutz-box p {
-        font-size: clamp(0.9rem, 0.95vw, 1rem);
+        font-size: clamp(0.7rem, 0.8vw, 0.85rem);
         color: var(--color-lighttext);
+        font-weight: 300;
         text-align: center;
         letter-spacing: 0.08rem;
         margin: 1rem;
@@ -1080,7 +1096,7 @@
 
     @media(max-width: 900px) {
         .text-box {
-            max-width: 616px;   
+            max-width: 300px;   
             margin: 0 auto;   
     
         }
@@ -1095,24 +1111,24 @@
        
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            height: 107px;
+            height: 125px;
         }
 
         .text-box-cat-long {
             background-color: var(--color-background); 
-            padding: 5rem 1.5rem; 
+            padding: 1.5rem 1.5rem; 
             grid-column: span 2;
             border-radius: 12px; 
             border: 1px solid var(--color-background);
-            margin: 0 0 5rem 0rem; 
-            height: 296px;
+            margin: 0 0 2rem 0rem; 
+            height: 150px;
        
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .section-content-filler {
-            max-width: 616px;       
+            max-width: 300px;       
             margin: 0 auto;   
 
         }
@@ -1188,7 +1204,7 @@
       }
     }
 
-/* ==============LOGO CAT============== */
+/* ============== LOGO CAT ============== */
 
     .logo-cat {
       position: relative;         
@@ -1212,7 +1228,13 @@
       to { transform: rotate(360deg); }
     }
 
-/* ==============VIDEOPT============== */
+    @media (max-width: 900px) {
+        .logo-cat {
+            width:200px;
+        }
+    }
+
+/* ============== VIDEOPT ============== */
 
     .hover-video {
       position: absolute;
@@ -1224,7 +1246,7 @@
       z-index: 2;
     }
 
-/* ==============ABOUT ME CONTAINER============== */
+/* ============== ABOUT ME CONTAINER ============== */
     .about-container {
         display: flex;
         gap: 2rem;
@@ -1250,7 +1272,7 @@
         height: auto;
     }
 
-/* ==============CONTACT SECTION============== */
+/* ============== CONTACT SECTION ============== */
     #contact {
         color: var(--color-text);
     }
@@ -1290,7 +1312,7 @@
         margin-bottom: 0.5rem;
     }
 
-/* ==============FOOTER============== */
+/* ============== FOOTER ============== */
 
     footer {
         height: 7rem;
