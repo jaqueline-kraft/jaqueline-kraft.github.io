@@ -56,7 +56,21 @@
 
 /* ============== DEBUG OUTLINES ============== */
     
-    /*
+   /* .about-text h1, h2, h3, h4, p {
+      outline: 2px solid grey;
+    }
+
+    .about-text {
+        outline: 2px solid purple;
+    }
+
+    .profile {
+        outline: 2px solid yellow;
+    }
+
+    .text-box {
+      outline: 2px solid darkcyan;
+    }
 
     .home {
       outline: 2px solid orange;
@@ -177,14 +191,14 @@
 /* ============== LANDING HEADER ============== */
 
     .home {
-      min-height: 260px;
+      height: 750px;
       padding-top: var(--nav-height);
       background-color: var(--color-landing);
       display: flex;
       align-items: flex-start;
       justify-content: center;
       position: relative;
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
     }
     
     #lottie-wrapper {
@@ -355,6 +369,42 @@
       font-weight: 600;
     }
 
+/* ============== INTRODUCTION ============== */
+
+    .introduction p {
+        font-size: clamp(1rem, 1.1vw, 1.2rem);
+        padding: 1rem 0 1rem;
+    }
+
+    .introduction-box {
+        background-color: var(--color-background); 
+        grid-column: span 2;
+        border-radius: 12px; 
+        border: 1px solid var(--color-background);
+        margin: 0 auto; 
+        padding-bottom: 0rem;
+        width: 1168px;   
+
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 1200px) {
+
+        .introduction-box {
+            max-width: 872px;    
+            margin: 0 auto;    
+        }
+    }
+
+    @media (max-width: 900px) {
+        
+        .introduction-box {
+            max-width: 316px;    
+            margin: 0 auto;    
+        }
+    }
+
 /* ============== NAVIGATION ============== */
 
     .top-header {
@@ -395,8 +445,8 @@
     .sub-nav {
       position: absolute;
       top: 100%;
-      left: 0%;
-      width: 100%;
+      left: -9%;
+      width: 120%;
       background: var(--color-topnav);
       border-radius: 10px;
       overflow: hidden;
@@ -421,7 +471,7 @@
 
     .sub-nav a {
       display: block;
-      padding: 0.6rem 0;
+      padding: 0.6rem 0.3rem;
       color: var(--color-blue2white);
       font-size: clamp(0.7rem, 0.8vw, 0.9rem);
       font-weight: 300;
@@ -485,10 +535,7 @@
     .nav-main-mobile {
       text-decoration: none;
       text-align: left;
-      margin: 0 4rem;
-      padding-top: 0.7rem;
-
-
+      margin: 0 4rem 0rem;
 
       font-weight: 600;
       font-size: 1.2rem;
@@ -499,7 +546,6 @@
       text-decoration: none;
       text-align: left;
       margin-left: 4rem;
-      padding-top: 0.2rem;
 
 
       font-weight: 200;
@@ -511,8 +557,8 @@
     .mobile-nav .sub-nav-mobile {
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
-      padding: 0rem 0rem;
+      padding: 0.4rem 0;
+      gap:0.7rem;
 
       position: static;
       max-height: none;
@@ -989,7 +1035,7 @@
     }
 
     section p {
-        font-size: clamp(0.7rem, 0.9vw, 1rem);
+        font-size: clamp(0.9rem, 1.1vw, 1.2rem);
         color: var(--color-text);
         text-align: center;
         font-weight: 300;
@@ -1071,6 +1117,7 @@
         border-radius: 12px; 
         border: 1px solid var(--color-background);
         margin: 0 0 4rem 0; 
+        height: 130px;
    
         backdrop-filter: blur(5px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -1083,6 +1130,7 @@
         border-radius: 12px; 
         border: 1px solid var(--color-background);
         margin: 0 0 1rem 0; 
+        height: 130px;
    
         backdrop-filter: blur(5px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -1104,7 +1152,20 @@
        
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            height:130px;
+            height:100px;
+        }
+
+        .text-box-cat-long {
+            background-color: var(--color-background); 
+            padding: 0.5rem 1.5rem; 
+            grid-column: span 2;
+            border-radius: 12px; 
+            border: 1px solid var(--color-background);
+            margin: 0 0 4rem 0; 
+       
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            height:100px;
         }
     }    
 
@@ -1260,67 +1321,123 @@
     }
 
 /* ============== ABOUT ME CONTAINER ============== */
-    .about-container {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
+    .about-text {
+        transform: translateY(-420px);
     }
 
     .about-text p {
         font-size: clamp(0.7rem, 1rem, 1.1rem);
         font-weight: 200;
+        text-align: left;
+        padding: 0rem 0rem 0.8rem 29rem;
         letter-spacing: 0.1rem;
-        padding: 1rem 0;
         color: var(--color-blue2white);
     }
 
-    .about-text h1 {
-        font-size: clamp(2rem, 2.5vw, 2.5rem);
-        font-weight: 200;
-        font: fabulosa;
-        letter-spacing: 0.15rem;
-        padding: 2rem 0;
+    .about-headline h1 {
+        font-size: clamp(1.2rem, 2.1vw, 2.5rem);
+        margin-bottom: 0.5rem;
         color: var(--color-blue2white);
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        text-align: center;
+        padding-bottom: 1rem;
 
-    }
-
-    .about-text h2 {
-        font-size: clamp(1.8rem, 2.2vw, 2.5rem);
-        font-weight: 500;
-        letter-spacing: 0.4rem;
-        padding: 1rem 0;
-        color: var(--color-blue2white);
-        
     }
 
     .about-text h3 {
-        font-size: clamp(1.2rem, 1.8vw, 1.9rem);
+        font-size: clamp(1.2rem, 1.5vw, 1.6rem);
         font-weight: 200;
+        text-align: left;
+        padding: 0.5rem 0rem 0rem 29rem;
         letter-spacing: 0.2rem;
-        padding: 0rem 0;
         color: var(--color-blue2white);
         
-        
-    }
-    
-    .about-text h4 {
-        font-size: clamp(1.2rem, 1.8vw, 1.9rem);
-        font-weight: 500;
-        letter-spacing: 0.2rem;
-        padding: 1rem 0;
-        color: var(--color-blue2white);
     }
 
 
-
+    .about-text-box {
+        background-color: var(--color-background); 
+        padding: 0.5rem 1.5rem; 
+        grid-column: span 2;
+        border-radius: 12px; 
+        border: 1px solid var(--color-background);
+        margin: 0 0 1rem 0; 
+   
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        height: 500px;
+    }
 
 
     .profile img {
-        width:170px;
-        height: auto;
+        width:350px;
+        margin-left: 3rem;
+        margin-top: 2rem;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
 
+    }
+
+    @media (max-width: 1200px) {
+
+        .profile img {
+            width:300px;
+            margin-left:1rem;
+            display:block;
+        }
+
+
+        .about-text-box {
+            height: 600px;
+            width: 872px;
+            margin: 0 auto;
+
+
+        }
+
+        .about-text h3 {
+            margin-left:22rem;
+            padding: 0.5rem 0rem 0rem 0rem;
+            transform: translateY(70px);
+        }
+
+        .about-text  p {
+            margin-left: 22rem;
+            padding: 0.5rem 0rem 1rem 0rem;
+            transform: translateY(70px);
+
+
+        }
+    }
+
+    @media (max-width: 900px) {
+
+        .profile img {
+            width:280px;
+            margin: 0 auto;
+        }
+
+        .about-text-box {
+            height: 1000px;
+            width: 316px;
+            margin: 0 auto;
+
+        }
+
+        .about-text h3 {
+            margin: 0 auto;
+            padding: 0.5rem 0rem 0rem 0rem;
+            transform: translateY(440px);
+        }
+
+        .about-text  p {
+            margin: 0 auto;
+            padding: 0.5rem 0rem 1rem 0rem;
+            transform: translateY(440px);
+
+
+        }
     }
 
 /* ============== CONTACT SECTION ============== */
