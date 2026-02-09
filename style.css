@@ -117,6 +117,7 @@
 /* ============== COLOR THEMES ============== */
     :root {
 
+        color-scheme:light;
         --color-blue2white: #364866;
         --color-orange2white: #d98e77;
         --color-blue2orange: #364866;
@@ -141,6 +142,7 @@
 
 
     [data-theme="dark"] {
+        color-scheme: dark;
         --color-blue2white: #ffffff;
         --color-orange2white: #ffffff;
         --color-blue2orange: #d98e77;
@@ -164,6 +166,7 @@
     [data-lang="en"] {
         display: none;
     }
+
 
     body {
         font-family: 'Avenir', 'Futura', 'Helvetica-Neue', sans-serif;
@@ -372,7 +375,7 @@
 /* ============== INTRODUCTION ============== */
 
     .introduction p {
-        font-size: clamp(1rem, 1.1vw, 1.2rem);
+        font-size: clamp(0.7rem, 1.1vw, 1.2rem);
         padding: 1rem 0 1rem;
     }
 
@@ -430,7 +433,7 @@
       display: flex;
       justify-content: center;
       gap: clamp(1rem, 2vw, 1.5rem);
-      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      font-size: clamp(1.1rem, 1.2vw, 1.2rem);
       min-width: 0;
 
     }
@@ -445,8 +448,7 @@
     .sub-nav {
       position: absolute;
       top: 100%;
-      left: -9%;
-      width: 120%;
+      width: 102%;
       background: var(--color-topnav);
       border-radius: 10px;
       overflow: hidden;
@@ -473,7 +475,7 @@
       display: block;
       padding: 0.6rem 0.3rem;
       color: var(--color-blue2white);
-      font-size: clamp(0.7rem, 0.8vw, 0.9rem);
+      font-size: clamp(0.7rem, 0.9vw, 1rem);
       font-weight: 300;
       letter-spacing: 0.08rem;
       text-decoration: none;
@@ -535,7 +537,7 @@
     .nav-main-mobile {
       text-decoration: none;
       text-align: left;
-      margin: 0 4rem 0rem;
+      margin: 0 2rem 0rem;
 
       font-weight: 600;
       font-size: 1.2rem;
@@ -545,7 +547,7 @@
     .nav-sub-mobile {
       text-decoration: none;
       text-align: left;
-      margin-left: 4rem;
+      margin-left: 2rem;
 
 
       font-weight: 200;
@@ -811,8 +813,10 @@
             grid-auto-rows: 280px;
             justify-content: center;
             grid-template-areas:
-            "box-1 box-2 box-3"
-            "box-1 box-4 box-3";
+            "box-1 box-3 box-3"
+            "box-1 box-3 box-3"
+            "box-2 box-2 box-4"
+
         }
     }   
 
@@ -1035,7 +1039,7 @@
     }
 
     section p {
-        font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+        font-size: clamp(0.7rem, 1.1vw, 1.2rem);
         color: var(--color-text);
         text-align: center;
         font-weight: 300;
