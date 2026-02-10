@@ -232,6 +232,29 @@
         }
     }
 
+/* ============== PT OPENER ============== */   
+
+    .portfolio-opener {
+        position: absolute;
+        inset: 0;
+        width: 36%;
+        height: 40%;
+        border-radius: 80%;
+        border: 2px solid var(--color-blue2white);
+        overflow:hidden;
+        margin: 18rem auto;
+        opacity: 1;
+        z-index: 2;
+        transform: translateY(950px);
+    }
+
+    .portfolio-opener video {
+      width: 110%;
+      height: 110%;
+      padding: 0rem 2rem 2rem 0rem;
+      object-fit: cover; /* keeps proportions and fills the circle */
+    }
+
 /* ============== JK LOGO HEADER ============== */
 
     .header-logo {
@@ -379,16 +402,44 @@
 
     .introduction p {
         font-size: clamp(0.7rem, 1vw, 1.2rem);
-        padding: 1rem 0 1rem;
+        padding: 2rem 3rem;
+        margin-bottom: 1rem;
     }
+
+    .introduction h1 {
+        padding-top:2rem;
+        letter-spacing: 0.5rem;
+        font-weight: 300;
+        font-size: clamp(1.7rem, 3vw, 3.2rem);
+    }
+
+    .introduction h2 {
+        font-weight: 500;
+        padding:0rem;
+        margin-top:0rem;
+        font-size: clamp(1.1rem, 2vw, 2.2rem);
+    }
+
+
+    .line-intro {
+        height: 0.15rem;
+        margin: 0 auto;
+        z-index: 1;
+        border-radius: 8px;
+        background-color: var(--color-orange2white);
+        width: 31%;
+        transform: translateY(-11px);
+    }
+
 
     .introduction-box {
         background-color: var(--color-background); 
         grid-column: span 2;
         border-radius: 12px; 
         border: 0.5px solid var(--color-textborder);
-        margin: 5rem auto; 
-        padding-bottom: 0rem;
+        margin: 5rem  auto; 
+
+        margin-bottom: 35rem;
         width: 1168px;   
 
         backdrop-filter: blur(5px);
@@ -862,12 +913,15 @@
     @media(max-width: 900px){ /* Katzenecke designs */
         .portfolio-grid.project-1 {
             grid-template-columns: repeat(2, 150px);
-            grid-template-rows: 150px 150px auto;
+            grid-template-rows: 150px;
             justify-content: center;
             grid-template-areas:
-            "box-1 box-2"
-            "box-3 box-5"
-            "box-4 box-6";
+            "box-1 box-1"
+            "box-4 box-4"
+            "box-2 box-2"
+            "box-5 box-5"
+            "box-3 box-3"
+            "box-6 box-6";
         }
     }
 
@@ -1149,7 +1203,7 @@
         border: 0.5px solid var(--color-textborder);
         margin: 1rem auto; 
         width: 1168px;
-        height: 100px;
+        height: auto;
    
         backdrop-filter: blur(5px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -1214,24 +1268,27 @@
             grid-column: span 2;
             border-radius: 12px; 
             border: 0.5px solid var(--color-textborder);
-            margin: 0 0 1rem 0rem; 
+            margin: 0.6rem auto; 
        
             backdrop-filter: blur(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            height: 150px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: auto;
+            transform:translateY(-5px);
         }
 
         .text-box-cat-long {
             background-color: var(--color-background); 
-            padding: 0.7rem 1rem; 
+            padding: 0.5rem 1rem; 
             grid-column: span 2;
             border-radius: 12px; 
             border: 0.5px solid var(--color-textborder);
-            margin: 0 0 1rem 0rem; 
-            height: 150px;
+            margin: 0.6rem auto; 
+            height: auto;
        
             backdrop-filter: blur(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+            transform:translateY(-5px);
         } 
 
 
@@ -1403,7 +1460,7 @@
 
     .about-text-box {
         background-color: var(--color-background); 
-        padding: 1rem 1.5rem; 
+        padding: 2rem 1.5rem; 
         grid-column: span 2;
         border-radius: 12px; 
         border: 0.5px solid var(--color-textborder);
@@ -1411,7 +1468,7 @@
    
         backdrop-filter: blur(5px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        height: 500px;
+        height: 600px;
     }
 
 
@@ -1424,6 +1481,26 @@
 
     }
 
+
+    ul {
+        list-style: disc;
+        font-size: clamp(0.7rem, 1rem, 1.1rem);
+        font-weight: 200;
+        text-align: left;
+        padding: 0rem 0rem 0rem 30rem;
+        letter-spacing: 0.1rem;
+        line-height: 1.6;
+        color: var(--color-blue2white);
+        transform: translateY(-10px);
+    }
+
+    li::marker {
+      color: #000;
+      font-size: 0.9em;
+      color: var(--color-blue2white);
+    }
+
+
     @media (max-width: 1200px) {
 
         .profile img {
@@ -1434,7 +1511,7 @@
 
 
         .about-text-box {
-            height: 600px;
+            height: 700px;
             width: 872px;
             margin: 0 auto;
 
@@ -1454,7 +1531,26 @@
 
 
         }
-    }
+
+        ul {
+            list-style: disc;
+            font-size: clamp(0.7rem, 1rem, 1.1rem);
+            font-weight: 200;
+            text-align: left;
+            padding: 0rem 0rem 0rem 23rem;
+            letter-spacing: 0.1rem;
+            line-height: 1.6;
+            color: var(--color-blue2white);
+            transform: translateY(60px);
+        }
+
+        li::marker {
+          color: #000;
+          font-size: 0.9em;
+          color: var(--color-blue2white);
+        }
+
+        }
 
     @media (max-width: 900px) {
 
@@ -1464,7 +1560,7 @@
         }
 
         .about-text-box {
-            height: 1000px;
+            height: 1250px;
             width: 316px;
             margin: 0 auto;
 
@@ -1482,6 +1578,24 @@
             transform: translateY(440px);
 
 
+        }
+
+        ul {
+            list-style: disc;
+            font-size: clamp(0.7rem, 1rem, 1.1rem);
+            font-weight: 200;
+            text-align: left;
+            padding: 0rem 0rem 0rem 1rem;
+            letter-spacing: 0.1rem;
+            line-height: 1.6;
+            color: var(--color-blue2white);
+            transform: translateY(430px);
+        }
+
+        li::marker {
+          color: #000;
+          font-size: 0.9em;
+          color: var(--color-blue2white);
         }
     }
 
