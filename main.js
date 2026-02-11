@@ -252,50 +252,42 @@ document.addEventListener("DOMContentLoaded", () => {
     lines.forEach(line => observer.observe(line));
   }
 
-  /* ============================================
-     MOTION VIDEO PT LANDING PLAYFUL
-  ============================================ */
-  document.querySelectorAll('.video').forEach(video => {
-    const parent = video.parentElement;
-    if (!parent) return;
-    parent.addEventListener('mouseenter', () => video.play());
-    parent.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-  });
-
-
+/* ============================================
+   MOTION VIDEO / BRAND VIDEO
+============================================ */
 document.addEventListener('DOMContentLoaded', () => {
-  // ============================================
-  // HOVER-TRIGGERED VIDEOS (DESKTOP)
-  // ============================================
-  document.querySelectorAll('.cat-scrib-video').forEach(video => {
-    const parent = video.parentElement;
-    if (!parent) return;
+  const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 
-    parent.addEventListener('mouseenter', () => video.play());
-    parent.addEventListener('mouseleave', () => {
-      video.pause();
-      video.currentTime = 0;
-    });
-  });
+  // HOVER-TRIGGERED VIDEOS (desktop only)
+  if (!isTouchDevice) {
+    document.querySelectorAll('.cat-scrib-video, .video').forEach(video => {
+      const parent = video.parentElement;
+      if (!parent) return;
 
-  // ============================================
-  // BRAND VIDEO AUTOPLAY (IPHONES / IPADS / DESKTOP)
-  // ============================================
-  const brandVideo = document.querySelector('.brandvideo');
-  if (brandVideo) {
-    brandVideo.play().catch(() => {
-      console.log('Autoplay blocked, waiting for user interaction');
-
-      // iPads may require a tap/click fallback
-      const playFallback = () => {
-        brandVideo.play().catch(err => console.log('Playback still blocked:', err));
-        // Remove the listener once it worked
-        brandVideo.removeEventListener('click', playFallback);
-      };
-      brandVideo.addEventListener('click', playFallback);
+      parent.addEventListener('mouseenter', () => video.play());
+      parent.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
     });
   }
+
+  // AUTOPLAY VIDEOS (brandvideo + any others you want)
+  document.querySelectorAll('.brandvideo, .cat-scrib-video, .video').forEach(video => {
+    video.play().catch(() => {
+      console.log('Autoplay blocked, waiting for user interaction');
+
+      // iPads / mobile tap fallback
+      const playFallback = () => {
+        video.play().catch(err => console.log('Playback still blocked:', err));
+        video.removeEventListener('click', playFallback);
+      };
+      video.addEventListener('click', playFallback);
+    });
+  });
 });
+
+
 
 
   /* ============================================
