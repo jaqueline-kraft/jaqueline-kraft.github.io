@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
   const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 
-  // HOVER-TRIGGERED VIDEOS (desktop only)
+  // DESKTOP: Hover Play/Pause
   if (!isTouchDevice) {
     document.querySelectorAll('.cat-scrib-video, .video').forEach(video => {
       const parent = video.parentElement;
@@ -272,21 +272,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // AUTOPLAY VIDEOS (brandvideo + any others you want)
+  // ALL DEVICES: Autoplay with fallback
   document.querySelectorAll('.brandvideo, .cat-scrib-video, .video').forEach(video => {
+    // Ensure muted and playsinline are set
+    video.muted = true;
+    video.playsInline = true;
+
+    // Attempt autoplay
     video.play().catch(() => {
       console.log('Autoplay blocked, waiting for user interaction');
 
-      // iPads / mobile tap fallback
-      const playFallback = () => {
+      // Add a tap fallback for iPads / mobile
+      const fallback = () => {
         video.play().catch(err => console.log('Playback still blocked:', err));
-        video.removeEventListener('click', playFallback);
+        video.removeEventListener('click', fallback);
       };
-      video.addEventListener('click', playFallback);
+      video.addEventListener('click', fallback);
     });
   });
 });
-
 
 
 
