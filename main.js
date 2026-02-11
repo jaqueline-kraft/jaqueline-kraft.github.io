@@ -263,25 +263,40 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* ============================================
-     MOTION VIDEO HOVER MOTION DESIGN VIDS
-  ============================================ */
-  document.querySelectorAll('.hover-video').forEach(video => {
-    const parent = video.parentElement;
-    if (!parent) return;
-    parent.addEventListener('mouseenter', () => video.play());
-    parent.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-  });
-
-  /* ============================================
-     MOTION VIDEO HOVER CAT SCRIB
-  ============================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  // ============================================
+  // HOVER-TRIGGERED VIDEOS (DESKTOP)
+  // ============================================
   document.querySelectorAll('.cat-scrib-video').forEach(video => {
     const parent = video.parentElement;
     if (!parent) return;
+
     parent.addEventListener('mouseenter', () => video.play());
-    parent.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+    parent.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
   });
+
+  // ============================================
+  // BRAND VIDEO AUTOPLAY (IPHONES / IPADS / DESKTOP)
+  // ============================================
+  const brandVideo = document.querySelector('.brandvideo');
+  if (brandVideo) {
+    brandVideo.play().catch(() => {
+      console.log('Autoplay blocked, waiting for user interaction');
+
+      // iPads may require a tap/click fallback
+      const playFallback = () => {
+        brandVideo.play().catch(err => console.log('Playback still blocked:', err));
+        // Remove the listener once it worked
+        brandVideo.removeEventListener('click', playFallback);
+      };
+      brandVideo.addEventListener('click', playFallback);
+    });
+  }
+});
+
 
   /* ============================================
      CENTERING OF CAT LOGO
