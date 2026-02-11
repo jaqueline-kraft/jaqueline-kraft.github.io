@@ -15,6 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  /* ============================================
+   NAVIGATION - HOME fixed
+ ============================================ */
+    const topHeader = document.querySelector('.top-header');
+    const homeSection = document.getElementById('home');
+
+    function updateHeaderPosition() {
+        if (!homeSection) return;
+        
+        const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+        
+        if (window.scrollY < homeBottom) {
+            // Im Home-Bereich: absolute positioning (scrollt mit)
+            topHeader.style.position = 'absolute';
+        } else {
+            // Nach Home: fixed positioning (bleibt oben)
+            topHeader.style.position = 'fixed';
+        }
+    }
+
+    // Bei Scroll prüfen
+    window.addEventListener('scroll', updateHeaderPosition);
+
+    // Initial Position setzen
+    updateHeaderPosition();
 
   /* ============================================
      NAV LOGO MOBILE
@@ -29,64 +54,92 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-   /* ============================================
-      LANDING / LOTTIE SCROLL
-   ============================================ */
-   const hero = document.getElementById("home-animation");
-   const scrollArea = document.querySelector(".home");
-   
-   if (hero && scrollArea && typeof lottie !== "undefined") {
-   
-     // Use root-relative path so it works on any page
-     const animation = lottie.loadAnimation({
-       container: hero,
-       renderer: "svg",
-       loop: false,
-       autoplay: false,
-       path: "/home-animation.json"
-     });
-   
-     animation.addEventListener("DOMLoaded", () => {
-       animation.goToAndStop(0, true);
-   
-       window.addEventListener("scroll", () => {
-         const rect = scrollArea.getBoundingClientRect();
-         if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-         if (rect.top >= 0) {
-           animation.goToAndStop(0, true);
-           return;
-         }
-         const scrollProgress = -rect.top / rect.height;
-         const progress = Math.min(Math.max(scrollProgress, 0), 1);
-         animation.goToAndStop(progress * animation.totalFrames, true);
-       });
-     });
-   }
-
-
   /* ============================================
-     ACCESS CONTROL
+     LANDING / LOTTIE SCROLL
   ============================================ */
+  const hero = document.getElementById("home-animation");
+  const scrollArea = document.querySelector(".home");
+
+  if (hero && scrollArea && typeof lottie !== "undefined") {
+
+    // Use root-relative path so it works on any page
+    const animation = lottie.loadAnimation({
+      container: hero,
+      renderer: "svg",
+      loop: false,
+      autoplay: false,
+      path: "/home-animation.json"
+    });
+
+    animation.addEventListener("DOMLoaded", () => {
+      animation.goToAndStop(0, true);
+
+      window.addEventListener("scroll", () => {
+        const rect = scrollArea.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+        if (rect.top >= 0) {
+          animation.goToAndStop(0, true);
+          return;
+        }
+        const scrollProgress = -rect.top / rect.height;
+        const progress = Math.min(Math.max(scrollProgress, 0), 1);
+        animation.goToAndStop(progress * animation.totalFrames, true);
+      });
+    });
+  }
+
+
+/* ============================================
+   ACCESS CONTROL mit Token-Speicherung
+============================================ */
+document.addEventListener("DOMContentLoaded", () => {
+
   const mainContent = document.getElementById("main-content");
   const accessDenied = document.getElementById("access-denied");
-  if (mainContent && accessDenied) {
-    const validTokens = { "TSx26": true, "Portfolio": true };
-    const params = new URLSearchParams(window.location.search);
-    const accessToken = params.get("access");
 
-    if (accessToken && validTokens[accessToken]) {
-      sessionStorage.setItem("hasAccess", "true");
-    }
+  if (!mainContent || !accessDenied) return;
 
-    const hasAccess = sessionStorage.getItem("hasAccess") === "true";
-    if (!hasAccess) {
-      mainContent.style.display = "none";
-      accessDenied.style.display = "block";
-    } else {
-      mainContent.style.display = "block";
-      accessDenied.style.display = "none";
-    }
+  const validTokens = {
+    "TSx26": true,
+    "Portfolio": true
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const accessToken = params.get("access");
+
+  /* --------------------------------------------
+     1. Token prüfen & speichern
+  -------------------------------------------- */
+  if (accessToken && validTokens[accessToken]) {
+    localStorage.setItem("portfolioAccess", accessToken);
   }
+
+  /* --------------------------------------------
+     2. Zugriff prüfen (URL ODER Storage)
+  -------------------------------------------- */
+  let hasAccess = false;
+  const savedToken = localStorage.getItem("portfolioAccess");
+
+  if (
+    (accessToken && validTokens[accessToken]) ||
+    (savedToken && validTokens[savedToken])
+  ) {
+    hasAccess = true;
+  }
+
+  /* --------------------------------------------
+     3. Anzeige steuern
+  -------------------------------------------- */
+  if (!hasAccess) {
+    mainContent.style.display = "none";
+    accessDenied.style.display = "block";
+  } else {
+    mainContent.style.display = "block";
+    accessDenied.style.display = "none";
+  }
+
+});
+
 
 /* ============================================
    DARK MODE
@@ -114,7 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("theme", theme);
       });
   }
-
 
   /* ============================================
      LANGUAGE SYSTEM
@@ -201,9 +253,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================
-     MOTION VIDEO HOVER
+     MOTION VIDEO PT LANDING PLAYFUL
+  ============================================ */
+  document.querySelectorAll('.video').forEach(video => {
+    const parent = video.parentElement;
+    if (!parent) return;
+    parent.addEventListener('mouseenter', () => video.play());
+    parent.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+  });
+
+
+  /* ============================================
+     MOTION VIDEO HOVER MOTION DESIGN VIDS
   ============================================ */
   document.querySelectorAll('.hover-video').forEach(video => {
+    const parent = video.parentElement;
+    if (!parent) return;
+    parent.addEventListener('mouseenter', () => video.play());
+    parent.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+  });
+
+  /* ============================================
+     MOTION VIDEO HOVER CAT SCRIB
+  ============================================ */
+  document.querySelectorAll('.cat-scrib-video').forEach(video => {
     const parent = video.parentElement;
     if (!parent) return;
     parent.addEventListener('mouseenter', () => video.play());
