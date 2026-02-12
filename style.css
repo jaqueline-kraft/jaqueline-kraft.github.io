@@ -834,7 +834,6 @@
         grid-auto-rows: auto;
         gap: 1rem;
         justify-content: center;
-        background-color: var(--color-topnav);
         grid-template-areas:
           "box-1 box-1";
     }
@@ -1594,15 +1593,6 @@
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-
-
-    .brandvideo video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-  }
-
     .brand-video-section {
         transform: translateY(-280px);
     }
@@ -1611,15 +1601,7 @@
         transform: translateY(-280px);
    }
 
-    .portfolio-item-10 {
-        position: relative;
-        border-radius: 8px;
-        padding-bottom:8rem;
-        overflow: hidden;
-    }
 
-
-    
 
     @media (max-width: 1200px) {
 
@@ -1680,6 +1662,46 @@
         opacity: 1;
         z-index: 2;
     }
+    
+    /* ============== BRAND VIDEO ============== */
+    .brand-video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .brandvideo {  /* Changed from .brand-video to match your JS */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .video-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 10;
+        opacity: 1;
+    }
+
+    .video-play-btn:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .brand-video-container.playing .video-play-btn {
+        opacity: 0;
+        pointer-events: none;
+    }
+
 
 /* ============== ABOUT ME CONTAINER ============== */
     .about-text {
