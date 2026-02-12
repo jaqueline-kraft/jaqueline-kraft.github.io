@@ -4,6 +4,44 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ============================================
+     ACCESS CONTROL mit Token-Speicherung
+  ============================================ */
+  const mainContent = document.getElementById("main-content");
+  const accessDenied = document.getElementById("access-denied");
+
+  if (mainContent && accessDenied) {
+    const validTokens = {
+      "TSx26": true,
+      "Portfolio": true
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const accessToken = params.get("access");
+
+    if (accessToken && validTokens[accessToken]) {
+      localStorage.setItem("portfolioAccess", accessToken);
+    }
+
+    let hasAccess = false;
+    const savedToken = localStorage.getItem("portfolioAccess");
+
+    if (
+      (accessToken && validTokens[accessToken]) ||
+      (savedToken && validTokens[savedToken])
+    ) {
+      hasAccess = true;
+    }
+
+    if (!hasAccess) {
+      mainContent.style.display = "none";
+      accessDenied.style.display = "block";
+    } else {
+      mainContent.style.display = "block";
+      accessDenied.style.display = "none";
+    }
+  }
+
+  /* ============================================
      NAVIGATOR SUB BOLD
   ============================================ */
   const subNavLinks = document.querySelectorAll('.sub-nav a');
@@ -15,31 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
   /* ============================================
-   NAVIGATION - HOME fixed
- ============================================ */
-    const topHeader = document.querySelector('.top-header');
-    const homeSection = document.getElementById('home');
+     NAVIGATION - HOME fixed
+  ============================================ */
+  const topHeader = document.querySelector('.top-header');
+  const homeSection = document.getElementById('home');
 
-    function updateHeaderPosition() {
-        if (!homeSection) return;
-        
-        const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
-        
-        if (window.scrollY < homeBottom) {
-            // Im Home-Bereich: absolute positioning (scrollt mit)
-            topHeader.style.position = 'absolute';
-        } else {
-            // Nach Home: fixed positioning (bleibt oben)
-            topHeader.style.position = 'fixed';
-        }
+  function updateHeaderPosition() {
+    if (!homeSection) return;
+    
+    const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+    
+    if (window.scrollY < homeBottom) {
+      topHeader.style.position = 'absolute';
+    } else {
+      topHeader.style.position = 'fixed';
     }
+  }
 
-    // Bei Scroll prüfen
-    window.addEventListener('scroll', updateHeaderPosition);
-
-    // Initial Position setzen
-    updateHeaderPosition();
+  window.addEventListener('scroll', updateHeaderPosition);
+  updateHeaderPosition();
 
   /* ============================================
      NAV LOGO MOBILE
@@ -48,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector('.mobile-nav');
   if (toggle && nav) {
     toggle.addEventListener('click', () => nav.classList.toggle('open'));
-
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => nav.classList.remove('open'));
     });
@@ -61,8 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollArea = document.querySelector(".home");
 
   if (hero && scrollArea && typeof lottie !== "undefined") {
-
-    // Use root-relative path so it works on any page
     const animation = lottie.loadAnimation({
       container: hero,
       renderer: "svg",
@@ -88,84 +119,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
-/* ============================================
-   ACCESS CONTROL mit Token-Speicherung
-============================================ */
-document.addEventListener("DOMContentLoaded", () => {
-
-  const mainContent = document.getElementById("main-content");
-  const accessDenied = document.getElementById("access-denied");
-
-  if (!mainContent || !accessDenied) return;
-
-  const validTokens = {
-    "TSx26": true,
-    "Portfolio": true
-  };
-
-  const params = new URLSearchParams(window.location.search);
-  const accessToken = params.get("access");
-
-  /* --------------------------------------------
-     1. Token prüfen & speichern
-  -------------------------------------------- */
-  if (accessToken && validTokens[accessToken]) {
-    localStorage.setItem("portfolioAccess", accessToken);
-  }
-
-  /* --------------------------------------------
-     2. Zugriff prüfen (URL ODER Storage)
-  -------------------------------------------- */
-  let hasAccess = false;
-  const savedToken = localStorage.getItem("portfolioAccess");
-
-  if (
-    (accessToken && validTokens[accessToken]) ||
-    (savedToken && validTokens[savedToken])
-  ) {
-    hasAccess = true;
-  }
-
-  /* --------------------------------------------
-     3. Anzeige steuern
-  -------------------------------------------- */
-  if (!hasAccess) {
-    mainContent.style.display = "none";
-    accessDenied.style.display = "block";
-  } else {
-    mainContent.style.display = "block";
-    accessDenied.style.display = "none";
-  }
-
-});
-
-
-/* ============================================
-   DARK MODE
-============================================ */
+  /* ============================================
+     DARK MODE
+  ============================================ */
   const themeToggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
   if (themeToggle) {
-      const savedTheme = localStorage.getItem("theme");
-      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const savedTheme = localStorage.getItem("theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-      // Check saved theme first, then system preference
-      if (savedTheme) {
-          root.dataset.theme = savedTheme;
-          themeToggle.checked = savedTheme === "dark";
-      } else {
-          // Use system preference if no saved theme
-          const preferredTheme = systemDark ? "dark" : "light";
-          root.dataset.theme = preferredTheme;
-          themeToggle.checked = systemDark;
-      }
+    if (savedTheme) {
+      root.dataset.theme = savedTheme;
+      themeToggle.checked = savedTheme === "dark";
+    } else {
+      const preferredTheme = systemDark ? "dark" : "light";
+      root.dataset.theme = preferredTheme;
+      themeToggle.checked = systemDark;
+    }
 
-      themeToggle.addEventListener("change", () => {
-          const theme = themeToggle.checked ? "dark" : "light";
-          root.dataset.theme = theme;
-          localStorage.setItem("theme", theme);
-      });
+    themeToggle.addEventListener("change", () => {
+      const theme = themeToggle.checked ? "dark" : "light";
+      root.dataset.theme = theme;
+      localStorage.setItem("theme", theme);
+    });
   }
 
   /* ============================================
@@ -251,49 +227,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     lines.forEach(line => observer.observe(line));
   }
-
 /* ============================================
-   MOTION VIDEO / BRAND VIDEO
+   VIDEOS
 ============================================ */
-document.addEventListener('DOMContentLoaded', () => {
-  const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 
-  // DESKTOP: Hover Play/Pause
-  if (!isTouchDevice) {
-    document.querySelectorAll('.cat-scrib-video, .video').forEach(video => {
-      const parent = video.parentElement;
-      if (!parent) return;
-
-      parent.addEventListener('mouseenter', () => video.play());
-      parent.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0;
-      });
+// DESKTOP: Hover Play/Pause for muted videos
+if (!isTouchDevice) {
+  document.querySelectorAll('.cat-scrib-video, .hover-video, .video').forEach(video => {
+    const parent = video.parentElement;
+    if (!parent) return;
+    
+    parent.addEventListener('mouseenter', () => {
+      video.play().catch(err => console.log('Play error:', err));
     });
-  }
-
-  // ALL DEVICES: Autoplay with fallback
-  document.querySelectorAll('.brandvideo, .cat-scrib-video, .video').forEach(video => {
-    // Ensure muted and playsinline are set
-    video.muted = true;
-    video.playsInline = true;
-
-    // Attempt autoplay
-    video.play().catch(() => {
-      console.log('Autoplay blocked, waiting for user interaction');
-
-      // Add a tap fallback for iPads / mobile
-      const fallback = () => {
-        video.play().catch(err => console.log('Playback still blocked:', err));
-        video.removeEventListener('click', fallback);
-      };
-      video.addEventListener('click', fallback);
+    
+    parent.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
     });
   });
+}
+
+// MOBILE/TABLET: Autoplay for muted videos
+if (isTouchDevice) {
+  document.querySelectorAll('.cat-scrib-video, .hover-video, .video').forEach(video => {
+    video.muted = true;
+    video.playsInline = true;
+    
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.log('Autoplay blocked for:', video.className);
+      });
+    }
+  });
+}
+
+// Brand Video with Sound - Click to Play
+document.querySelectorAll('.brand-video-container').forEach(container => {
+  const video = container.querySelector('.brandvideo');
+  const playBtn = container.querySelector('.video-play-btn');
+  
+  if (!video || !playBtn) return;
+  
+  const togglePlay = () => {
+    if (video.paused) {
+      video.play().then(() => {
+        container.classList.add('playing');
+      }).catch(err => console.log('Play error:', err));
+    } else {
+      video.pause();
+      container.classList.remove('playing');
+    }
+  };
+  
+  playBtn.addEventListener('click', togglePlay);
+  container.addEventListener('click', (e) => {
+    if (e.target !== playBtn && !playBtn.contains(e.target)) {
+      togglePlay();
+    }
+  });
+  
+  video.addEventListener('ended', () => {
+    container.classList.remove('playing');
+    video.currentTime = 0;
+  });
 });
-
-
-
   /* ============================================
      CENTERING OF CAT LOGO
   ============================================ */
