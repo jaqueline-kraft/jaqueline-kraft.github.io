@@ -86,7 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener('click', () => nav.classList.remove('open'));
     });
   }
-
+   // Mobile Navigation - Menü schließen beim Klicken auf Links
+   document.querySelectorAll('.mobile-nav a').forEach(link => {
+     link.addEventListener('click', () => {
+       document.querySelector('.mobile-nav').classList.remove('open');
+     });
+   });
   /* ============================================
      LANDING / LOTTIE SCROLL
   ============================================ */
