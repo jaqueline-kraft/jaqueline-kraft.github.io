@@ -1702,6 +1702,12 @@
         pointer-events: none;
     }
 
+    @media (max-width: 900px) {
+        .brandvideo {
+          width:100%;
+          height: auto;
+        }
+    }
 
 /* ============== ABOUT ME CONTAINER ============== */
     .about-text {
