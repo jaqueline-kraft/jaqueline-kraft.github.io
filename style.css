@@ -766,8 +766,6 @@
         "box-1 box-1 box-4 box-4";
     }
 
-
-
     .portfolio-grid.project-4 { /*  Farbvarianten  */ 
       display: grid;
       grid-template-columns: repeat(4, 280px);
@@ -853,6 +851,16 @@
           "box-1 box-2";
     }
 
+    .portfolio-grid.project-12 { /* Flyer  */
+        display: grid;
+        grid-template-columns: repeat(2, 576px);
+        grid-auto-rows: 560px;
+        gap: 1rem;
+        justify-content: center;
+        grid-template-areas:
+          "box-1 box-2";
+    }
+
     .portfolio-item {
       position: relative;
       border-radius: 8px;
@@ -871,7 +879,7 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        position: relative;  /* optional, ensures stacking context */
+        position: relative; 
         z-index: 1;
     }    
 
@@ -1020,6 +1028,16 @@
         }
     }
 
+        @media(max-width: 1200px){ /* Flyer  */
+        .portfolio-grid.project-12 { 
+            grid-template-columns: repeat(2, 420px);
+            grid-auto-rows: 400px;
+            justify-content: center;
+            grid-template-areas:
+            "box-1 box-2";
+        }
+    }
+
     @media(max-width: 900px){ /* Katzenecke designs */
         .portfolio-grid.project-1 {
             grid-template-columns: repeat(2, 150px);
@@ -1141,7 +1159,7 @@
         @media(max-width: 900px){ /* brand video */
         .portfolio-grid.project-10 {
             grid-template-columns: repeat(2, 150px);
-            grid-auto-rows: 300px;
+            grid-auto-rows: 170px;
             justify-content: center;
             grid-template-areas:
             "box-1 box-1";
@@ -1150,6 +1168,17 @@
 
     @media(max-width: 900px){ /* scribble */
         .portfolio-grid.project-11 {
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 300px;
+            justify-content: center;
+            grid-template-areas:
+            "box-1 box-1"
+            "box-2 box-2";
+        }
+    }
+
+        @media(max-width: 900px){ /* flyer */
+        .portfolio-grid.project-12 {
             grid-template-columns: repeat(2, 150px);
             grid-auto-rows: 300px;
             justify-content: center;
@@ -1599,13 +1628,16 @@
     }
 
     .brand-video-section {
-        transform: translateY(-280px);
+        transform: translateY(-250px);
     }
 
    .section-content-B-logo {
         transform: translateY(-280px);
    }
 
+   .section-content-B-flyer {
+        transform: translateY(-130px);
+   }
 
 
     @media (max-width: 1200px) {
@@ -1624,7 +1656,7 @@
       }
 
       .brand-video-section {
-            transform: translateY(-400px);
+            transform: translateY(-260px);
       }
 
       .text-box-logodesign {
@@ -1651,7 +1683,7 @@
       }
 
       .brand-video-section {
-            transform: translateY(-420px);
+            transform: translateY(-220px);
     }
 
     }
