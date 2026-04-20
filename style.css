@@ -506,7 +506,7 @@
 
         .introduction-box {
             max-width: 872px;    
-            margin: 0 auto;    
+            margin: 0 auto;  
         }
 
         .line-intro {
@@ -1413,7 +1413,7 @@
 
         .text-box-descript {
             width: 872px;
-            height: 100px;
+            height: auto;
             padding: 1rem;
         }
 
