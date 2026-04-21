@@ -457,7 +457,7 @@
 /* ============== INTRODUCTION ============== */
 
     .introduction p {
-        font-size: clamp(0.7rem, 1vw, 1.2rem);
+        font-size: clamp(0.7rem, 0.85vw, 0.9rem);
         padding: 2rem 3rem;
         margin-bottom: 1rem;
     }
@@ -473,7 +473,7 @@
         font-weight: 500;
         padding:0rem;
         margin-top:0rem;
-        font-size: clamp(1.1rem, 2vw, 2.1rem);
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
     }
 
 
@@ -1252,14 +1252,14 @@
         margin-top: 0.5rem;
         margin-bottom: 1rem;
         font-weight: 200;
-        font-size: clamp(1.5rem, 2.5vw, 4rem);
+        font-size: clamp(1.5rem, 2.2vw, 2.5rem);
         text-align: center;
         letter-spacing: 0.2rem;
         color: #D98e77;
     }
 
     section h2 {
-        font-size: clamp(1.2rem, 2vw, 2rem);
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
         margin-bottom: 0.5rem;
         color: var(--color-blue2white);
         font-weight: 600;
@@ -1281,19 +1281,20 @@
     }
 
     section h4 {
-        font-size: clamp(1rem, 2vw, 3rem);
-        padding: 6rem 0 2rem;
-        text-align: left;
-        display: block;
-        color: var(--color-lighttext);
-        font-weight: 200;
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+        margin-bottom: 0.5rem;
+        color: var(--color-blue2white);
+        font-weight: 600;
+        letter-spacing: 0.2rem;
         text-align: center;
-        letter-spacing: 0.08rem;
+        padding-bottom: 1rem;
+
+
 
     }
 
     section p {
-        font-size: clamp(0.6rem, 1.15vw, 1.15rem);
+        font-size: clamp(0.6rem, 0.9vw, 1rem);
         color: var(--color-text);
         text-align: center;
         font-weight: 300;
@@ -1409,7 +1410,7 @@
     }
 
     .text-box-descript h7 {
-        font-size: clamp(0.6rem, 1.15vw, 1.15rem);
+        font-size: clamp(0.6rem, 0.9vw, 1rem);
         color: var(--color-text);
         text-align: center;
         display: flex;
@@ -1422,7 +1423,7 @@
     }
 
     .text-box-descript h6 {
-        font-size: clamp(0.6rem, 1.15vw, 1.15rem);
+        font-size: clamp(0.6rem, 0.9vw, 1rem);
         color: var(--color-text);
         text-align: center;
         display: flex;
@@ -1433,7 +1434,7 @@
     }
 
     .text-box-descript p {
-        font-size: clamp(0.6rem, 1.15vw, 1.15rem);
+        font-size: clamp(0.6rem, 0.9vw, 1rem);
         color: var(--color-text);
         text-align: center;
         display: flex;
@@ -1739,7 +1740,7 @@
         z-index: 2;
     }
     
-    /* ============== BRAND VIDEO ============== */
+/* ============== BRAND VIDEO ============== */
     .brand-video-container {
         position: relative;
         width: 100%;
@@ -1791,7 +1792,7 @@
     }
 
     .about-text p {
-        font-size: clamp(0.7rem, 1rem, 1.1rem);
+        font-size: clamp(0.7rem, 0.9rem, 1rem);
         font-weight: 200;
         text-align: left;
         padding: 0rem 0rem 0.8rem 29rem;
@@ -1800,7 +1801,7 @@
     }
 
     .about-headline h1 {
-        font-size: clamp(1.2rem, 2.1vw, 2.5rem);
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
         margin-bottom: 0.5rem;
         color: var(--color-blue2white);
         font-weight: 600;
@@ -1811,7 +1812,7 @@
     }
 
     .about-text h3 {
-        font-size: clamp(1rem, 1.3vw, 1.3rem);
+        font-size: clamp(1rem, 1vw, 1.1rem);
         font-weight: 500;
         text-align: left;
         padding: 0.5rem 0rem 0rem 29rem;
