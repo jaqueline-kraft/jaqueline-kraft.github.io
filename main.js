@@ -42,18 +42,61 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================
-     NAVIGATOR SUB BOLD
+     NAVIGATION STATE SYSTEM (TOP + SUB + MOBILE)
   ============================================ */
-  const subNavLinks = document.querySelectorAll('.sub-nav a');
-  if (subNavLinks.length) {
-    subNavLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        subNavLinks.forEach(l => l.classList.remove('active'));
-        e.currentTarget.classList.add('active');
-      });
-    });
-  }
 
+  const currentPath = window.location.pathname;
+  const currentHash = window.location.hash;
+
+  /* =========================
+     TOP NAV (MAIN LINKS)
+  ========================= */
+  const topNavLinks = document.querySelectorAll(
+    '.nav-main, .nav-main-mobile'
+  );
+
+  topNavLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+  /* =========================
+     SUB NAV (HASH BASED)
+  ========================= */
+  const subNavLinks = document.querySelectorAll(
+    '.sub-nav a, .sub-nav-mobile a'
+  );
+
+  subNavLinks.forEach(link => {
+    if (link.hash && link.hash === currentHash) {
+      link.classList.add('active');
+
+      // also activate parent main link
+      const parent = link.closest('.nav-item')?.querySelector('.nav-main');
+      if (parent) {
+        parent.classList.add('active');
+      }
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+  /* =========================
+     CLICK FEEDBACK (NO NAV LOGIC)
+     (only visual feedback, optional)
+  ========================= */
+
+  subNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      subNavLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
   /* ============================================
      NAVIGATION - HOME fixed
   ============================================ */
@@ -232,73 +275,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     lines.forEach(line => observer.observe(line));
   }
-/* ============================================
-   VIDEOS
-============================================ */
-const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+  /* ============================================
+     VIDEOS
+  ============================================ */
+  const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 
-// DESKTOP: Hover Play/Pause for muted videos
-if (!isTouchDevice) {
-  document.querySelectorAll('.cat-scrib-video, .hover-video, .video').forEach(video => {
-    const parent = video.parentElement;
-    if (!parent) return;
+  // DESKTOP: Hover Play/Pause for muted videos
+  if (!isTouchDevice) {
+    document.querySelectorAll('.cat-scrib-video, .hover-video, .video').forEach(video => {
+      const parent = video.parentElement;
+      if (!parent) return;
+      
+      parent.addEventListener('mouseenter', () => {
+        video.play().catch(err => console.log('Play error:', err));
+      });
+      
+      parent.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  }
+
+  // MOBILE/TABLET: Autoplay for muted videos
+  if (isTouchDevice) {
+    document.querySelectorAll('.cat-scrib-video, .hover-video, .video').forEach(video => {
+      video.muted = true;
+      video.playsInline = true;
+      
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          console.log('Autoplay blocked for:', video.className);
+        });
+      }
+    });
+  }
+
+  // Brand Video with Sound - Click to Play
+  document.querySelectorAll('.brand-video-container').forEach(container => {
+    const video = container.querySelector('.brandvideo');
+    const playBtn = container.querySelector('.video-play-btn');
     
-    parent.addEventListener('mouseenter', () => {
-      video.play().catch(err => console.log('Play error:', err));
+    if (!video || !playBtn) return;
+    
+    const togglePlay = () => {
+      if (video.paused) {
+        video.play().then(() => {
+          container.classList.add('playing');
+        }).catch(err => console.log('Play error:', err));
+      } else {
+        video.pause();
+        container.classList.remove('playing');
+      }
+    };
+    
+    playBtn.addEventListener('click', togglePlay);
+    container.addEventListener('click', (e) => {
+      if (e.target !== playBtn && !playBtn.contains(e.target)) {
+        togglePlay();
+      }
     });
     
-    parent.addEventListener('mouseleave', () => {
-      video.pause();
+    video.addEventListener('ended', () => {
+      container.classList.remove('playing');
       video.currentTime = 0;
     });
   });
-}
-
-// MOBILE/TABLET: Autoplay for muted videos
-if (isTouchDevice) {
-  document.querySelectorAll('.cat-scrib-video, .hover-video, .video').forEach(video => {
-    video.muted = true;
-    video.playsInline = true;
-    
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        console.log('Autoplay blocked for:', video.className);
-      });
-    }
-  });
-}
-
-// Brand Video with Sound - Click to Play
-document.querySelectorAll('.brand-video-container').forEach(container => {
-  const video = container.querySelector('.brandvideo');
-  const playBtn = container.querySelector('.video-play-btn');
-  
-  if (!video || !playBtn) return;
-  
-  const togglePlay = () => {
-    if (video.paused) {
-      video.play().then(() => {
-        container.classList.add('playing');
-      }).catch(err => console.log('Play error:', err));
-    } else {
-      video.pause();
-      container.classList.remove('playing');
-    }
-  };
-  
-  playBtn.addEventListener('click', togglePlay);
-  container.addEventListener('click', (e) => {
-    if (e.target !== playBtn && !playBtn.contains(e.target)) {
-      togglePlay();
-    }
-  });
-  
-  video.addEventListener('ended', () => {
-    container.classList.remove('playing');
-    video.currentTime = 0;
-  });
-});
   /* ============================================
      CENTERING OF CAT LOGO
   ============================================ */
