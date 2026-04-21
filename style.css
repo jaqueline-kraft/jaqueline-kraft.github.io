@@ -469,15 +469,15 @@
         font-size: clamp(1.7rem, 3vw, 3.2rem);
     }
 
-    .introduction h2 {
+    .introduction h2 { /* welcometext pt at home */
         font-weight: 500;
         padding:0rem;
         margin-top:0rem;
-        font-size: clamp(1.5rem, 2vw, 2.5rem);
+        font-size: clamp(1rem, 2vw, 2.5rem);
     }
 
 
-    .line-intro {
+    .line-intro { 
         height: 0.15rem;
         margin: 0 auto;
         z-index: 1;
@@ -558,6 +558,11 @@
 
     }
 
+    .top-nav a.active {
+      font-weight: 600; /* color font when active */
+      color: #d98e77;
+    }
+
     .nav-item {
       position: relative;
       display: flex;
@@ -580,7 +585,8 @@
       pointer-events: none;
       display: flex;
       flex-direction: column;
-      padding: 0;               
+      padding: 0;         
+      transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease; /* effekt des subnav */      
     }
 
     .nav-item:hover .sub-nav {
@@ -603,7 +609,7 @@
 
     .sub-nav a.active {
       font-weight: 600; /* heavier font when active */
-      color: var(--color-blue2white); /* optional, to highlight */
+      color: #d98e77;; /* color to highlight */
     }
 
     .top-nav .nav-main {
@@ -668,7 +674,7 @@
 
 
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--color-blue2white);
     }
 
@@ -687,9 +693,17 @@
       pointer-events: auto;
 
       font-weight: 200;
-      font-size: 1.2rem;
+      font-size:0.9rem;
       color: var(--color-blue2white);
     
+    }
+
+    .nav-main-mobile.active {
+      color: #d98e77;
+    }
+
+    .sub-nav-mobile a.active {
+      color: #d98e77;; /* color to highlight */
     }
 
     .mobile-nav.open {
@@ -699,7 +713,7 @@
     .nav-toggle {
       display: none;
       position: fixed;
-      top: 0.7rem;
+      top: 0.5rem;
       left: 2rem;
       width: 30px;
       height: 24px;
@@ -1225,7 +1239,6 @@
         }
     }
 
-
 /* ============== SECTIONS ============== */
     section {
         padding: 0rem 0;
@@ -1234,7 +1247,7 @@
     .section-content {
         max-width: 1250px;
         width: 100%;
-        margin: 5rem auto;
+        margin: 4.5rem auto;
         padding-inline: clamp(1rem, 2vw, 4rem);
         scroll-margin-top: 100px;
 
