@@ -861,6 +861,18 @@
           "box-1 box-2";
     }
 
+    .portfolio-grid.project-13 { /*  Social Media */ 
+      display: grid;
+      grid-template-columns: repeat(4, 280px);
+      grid-auto-rows: 280px;
+      gap: 1rem;
+      justify-content: center;
+      grid-template-areas:
+        "box-1 box-1 box-2 box-2"
+        "box-3 box-3 box-4 box-4";
+    }
+
+
     .portfolio-item {
       position: relative;
       border-radius: 8px;
@@ -1038,6 +1050,19 @@
         }
     }
 
+        @media(max-width: 1200px){ /* Social Media */
+        .portfolio-grid.project-13 {
+            grid-template-columns: repeat(3, 280px);
+            grid-auto-rows: 280px;
+            justify-content: center;
+            grid-template-areas:
+            "box-1 box-3 box-2"
+            "box-4 box-4 box-4"
+            "box-4 box-4 box-4"
+
+        }
+    }   
+
     @media(max-width: 900px){ /* Katzenecke designs */
         .portfolio-grid.project-1 {
             grid-template-columns: repeat(2, 150px);
@@ -1187,6 +1212,20 @@
             "box-2 box-2";
         }
     }
+
+    @media(max-width: 900px){ /* Social Media */
+        .portfolio-grid.project-13 {
+            grid-template-columns: repeat(2, 150px);
+            grid-auto-rows: 150px;
+            justify-content: center;
+            grid-template-areas:
+            "box-1 box-1"
+            "box-2 box-2"
+            "box-3 box-3"
+            "box-4 box-4";
+        }
+    }
+
 
 /* ============== SECTIONS ============== */
     section {
