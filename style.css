@@ -1691,6 +1691,9 @@
         transform: translateY(-130px);
    }
 
+   .section-content-B-package {
+        transform: translateY(-375px);
+   }
 
     @media (max-width: 1200px) {
 
