@@ -1803,7 +1803,8 @@
 
 /* ============== ABOUT ME CONTAINER ============== */
     .about-text {
-        transform: translateY(-420px);
+        transform: translateY(-492px);
+        margin-left: 1rem;
     }
 
     .about-text p {
@@ -1852,11 +1853,16 @@
 
 
     .profile img {
-        width:350px;
-        margin-left: 3rem;
-        margin-top: 2rem;
+        width:400px;
+        height: 500px;
+        margin-top: 0.8rem;
+        margin-left: 1.8rem;
+        border-radius: 12px; 
         display: flex;
         flex-direction: column;
+        grid-column: span 1;
+        object-fit: cover;
+        object-position: 40% top;
 
     }
 
@@ -1883,9 +1889,12 @@
     @media (max-width: 1200px) {
 
         .profile img {
-            width:300px;
+            width:250px;
+            height: 600px;
             margin-left:1rem;
             display:block;
+            object-fit: cover;
+            object-position: 40% top;
         }
 
 
@@ -1898,15 +1907,15 @@
         }
 
         .about-text h3 {
-            margin-left:22rem;
+            margin-left:18rem;
             padding: 0.5rem 0rem 0rem 0rem;
-            transform: translateY(70px);
+            transform: translateY(-75px);
         }
 
         .about-text  p {
-            margin-left: 22rem;
+            margin-left: 18rem;
             padding: 0.5rem 0rem 1rem 0rem;
-            transform: translateY(70px);
+            transform: translateY(-75px);
 
 
         }
@@ -1934,12 +1943,12 @@
     @media (max-width: 900px) {
 
         .profile img {
-            width:280px;
+            width:260px;
             margin: 0 auto;
         }
 
         .about-text-box {
-            height: 1250px;
+            height: 1350px;
             width: 316px;
             margin: 0 auto;
 
@@ -1948,13 +1957,13 @@
         .about-text h3 {
             margin: 0 auto;
             padding: 0.5rem 0rem 0rem 0rem;
-            transform: translateY(440px);
+            transform: translateY(540px);
         }
 
         .about-text  p {
             margin: 0 auto;
             padding: 0.5rem 0rem 1rem 0rem;
-            transform: translateY(440px);
+            transform: translateY(540px);
 
 
         }
