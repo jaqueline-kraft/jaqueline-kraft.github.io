@@ -355,5 +355,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const offsetY = centerY - (bbox.y + bbox.height / 2);
     g.setAttribute("transform", `translate(${offsetX}, ${offsetY}) scale(1.1)`);
   }
-
+/* ============================================
+     PORTFOLIO TRACKER
+  ============================================ */
+  fetch("https://eoaeelym9b895p...", {
+    method: "POST",
+    body: JSON.stringify({
+      time: new Date().toISOString(),
+      page: window.location.href,
+      referrer: document.referrer
+    }),
+    headers: { "Content-Type": "application/json" }
+  });
 });
