@@ -342,6 +342,24 @@ document.addEventListener("DOMContentLoaded", () => {
       video.currentTime = 0;
     });
   });
+/* ============================================
+     Image Zoom
+  ============================================ */
+    document.querySelectorAll('.hover-zoom').forEach(item => {
+      const img = item.querySelector('img');
+      if (!img) return;
+
+      item.addEventListener('mousemove', (e) => {
+          const rect = item.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          img.style.transform = `scale(3) translate(${x * 330}px, ${y * 330}px)`;
+      });
+
+      item.addEventListener('mouseleave', () => {
+          img.style.transform = 'scale(1) translate(0, 0)';
+      });
+  });
   /* ============================================
      CENTERING OF CAT LOGO
   ============================================ */
